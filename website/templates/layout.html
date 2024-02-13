@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es" class="header finisher-header">
+<head>
+        <!-- TITTLE -->
+        <title>Zebalday.dev | {% block page_title %}{% comment %} CHILD TEMPLATE TITTLE {% endcomment %}{% endblock page_title %}</title>
+        <!-- META -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="copyright" content="&copy; ">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="geo.region" content="CL" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="googlebot-news" content="noindex">
+        <meta name="distribution" content="global" />
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+        <!-- FACEBOOK OG -->
+        <meta property="og:type" content="Website" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="{% static '' %}"/>
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:locale" content="es">
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="Baron Propiedades" />
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.min.css' %}" >
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.layout.css' %}" >
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.toggle-sections.css' %}" >
+        {% block page_styles %}
+        {% comment %} CHILD TEMPLATE STYLES {% endcomment %}
+        {% endblock page_styles %}
+        <!-- FAVICON -->
+        
+</head>
+    <body>
+
+        <header>
+            <h1 class="header-title">zebalday</h1>
+            <div class="header-navbar-container">
+                <navbar>
+                    <div id="toggle">
+                        &gt; Sections  &lt;
+                    </div>
+                    <div id="menu" class="hide-menu">
+                        <ul>
+                            <li>Index</li>
+                            <li>Proyects</li>
+                            <li>Blog</li>
+                            <li>CV</li>
+                            <li>About me</li>
+                        </ul>
+                    </div>
+                </navbvar>
+            </div>
+        </header>
+
+
+        {% block page_content %}
+        {% comment %} CHILD TEMPLATE CONTENT {% endcomment %}
+        {% endblock page_content %}
+        
+        <!-- SCRIPTS-->
+        <script type="text/javascript" src={% static "/js/responsive-functions.js" %}></script>
+        {% block page_scripts %}
+        {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
+        {% endblock page_scripts %}
+    </body>
+</html>
+
+
+
+
+

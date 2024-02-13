@@ -1,0 +1,92 @@
+/* COLOR VARIABLES */
+:root {
+    /** CSS DARK PRIMARY COLORS */
+    --color-dark-primary-a0: #ffffff;
+    --color-dark-primary-a10: #b9bac4;
+    --color-dark-primary-a20: #787a8d;
+    --color-dark-primary-a30: #3b3f59;
+    --color-dark-primary-a50: #000929;
+    --color-dark-primary-a60: #020721;
+    --color-dark-primary-a70: #020419;
+    --color-dark-primary-a80: #01020f;
+    --color-dark-primary-a90: #000000;
+
+    /** CSS DARK SECONDARY COLORS */
+    --color-dark-secondary-a0: #ffffff;
+    --color-dark-secondary-a10: #bfb8c9;
+    --color-dark-secondary-a20: #837695;
+    --color-dark-secondary-a30: #4a3a64;
+    --color-dark-secondary-a50: #150036;
+    --color-dark-secondary-a60: #14002a;
+    --color-dark-secondary-a70: #11001f;
+    --color-dark-secondary-a80: #090013;
+    --color-dark-secondary-a90: #000000;
+
+    /** CSS LIGHT PRIMARY COLORS */
+    --color-light-primary-a0: #ffffff;
+    --color-light-primary-a10: #d4d1f7;
+    --color-light-primary-a20: #a6a5ee;
+    --color-light-primary-a30: #757be4;
+    --color-light-primary-a50: #3054d9;
+    --color-light-primary-a60: #2c3f9e;
+    --color-light-primary-a70: #242c67;
+    --color-light-primary-a80: #181934;
+    --color-light-primary-a90: #000000;
+
+    /** CSS LIGHT SECONDARY COLORS */
+    --color-light-secondary-a0: #ffffff;
+    --color-light-secondary-a10: #d2f2ce;
+    --color-light-secondary-a20: #a2e59e;
+    --color-light-secondary-a30: #6cd66e;
+    --color-light-secondary-a50: #00c738;
+    --color-light-secondary-a60: #1b912d;
+    --color-light-secondary-a70: #1d5f22;
+    --color-light-secondary-a80: #163116;
+    --color-light-secondary-a90: #000000;
+}
+
+/* FONTS */
+@font-face {
+    font-family: "LemonMilk-B";
+    src: url("../fonts/LemonMilk/LEMONMILK-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "LemonMilk-BI";
+    src: url("../fonts/LemonMilk/LEMONMILK-BoldItalic.otf") format("opentype");
+}
+@font-face {
+    font-family: "LemonMilk-L";
+    src: url("../fonts/LemonMilk/LEMONMILK-Light.otf") format("opentype");
+}
+@font-face {
+    font-family: "LemonMilk-M";
+    src: url("../fonts/LemonMilk/LEMONMILK-Medium.otf") format("opentype");
+}
+@font-face {
+    font-family: "LemonMilk-R";
+    src: url("../fonts/LemonMilk/LEMONMILK-Regular.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: "LiberationSans-B";
+    src: url("../fonts/LiberationSans/LiberationSans-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "LiberationSans-BI";
+    src: url("../fonts/LiberationSans/LiberationSans-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "LiberationSans-I";
+    src: url("../fonts/LiberationSans/LiberationSans-Italic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "LiberationSans-R";
+    src: url("../fonts/LiberationSans/LiberationSans-Regular.ttf") format("truetype");
+}
+
+/* GENERAL STYLES */
+html{
+    margin: 0 auto;
+    line-height: 1rem;
+}
