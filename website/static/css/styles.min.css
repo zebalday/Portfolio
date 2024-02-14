@@ -43,6 +43,21 @@
     --color-light-secondary-a70: #1d5f22;
     --color-light-secondary-a80: #163116;
     --color-light-secondary-a90: #000000;
+
+    /** CSS LIGHT TERCIARY COLORS */
+    --color-light-terciary-a0: #ffffff;
+    --color-light-terciary-a10: #fff4cc;
+    --color-light-terciary-a20: #ffe998;
+    --color-light-terciary-a30: #fcde61;
+    --color-light-terciary-a50: #f5d400;
+    --color-light-terciary-a60: #b29a16;
+    --color-light-terciary-a70: #746418;
+    --color-light-terciary-a80: #3b3313;
+    --color-light-terciary-a90: #000000;
+
+    /* OTHER COLORS */
+    --django-primary-color: #20AA76;
+    --django-secondary-color: #0C4B33;
 }
 
 /* FONTS */
@@ -50,18 +65,22 @@
     font-family: "LemonMilk-B";
     src: url("../fonts/LemonMilk/LEMONMILK-Bold.otf") format("opentype");
 }
+
 @font-face {
     font-family: "LemonMilk-BI";
     src: url("../fonts/LemonMilk/LEMONMILK-BoldItalic.otf") format("opentype");
 }
+
 @font-face {
     font-family: "LemonMilk-L";
     src: url("../fonts/LemonMilk/LEMONMILK-Light.otf") format("opentype");
 }
+
 @font-face {
     font-family: "LemonMilk-M";
     src: url("../fonts/LemonMilk/LEMONMILK-Medium.otf") format("opentype");
 }
+
 @font-face {
     font-family: "LemonMilk-R";
     src: url("../fonts/LemonMilk/LEMONMILK-Regular.otf") format("opentype");
@@ -72,21 +91,37 @@
     font-family: "LiberationSans-B";
     src: url("../fonts/LiberationSans/LiberationSans-Bold.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "LiberationSans-BI";
     src: url("../fonts/LiberationSans/LiberationSans-BoldItalic.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "LiberationSans-I";
     src: url("../fonts/LiberationSans/LiberationSans-Italic.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "LiberationSans-R";
     src: url("../fonts/LiberationSans/LiberationSans-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Roboto-B";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-R";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
 /* GENERAL STYLES */
-html{
+html {
     margin: 0 auto;
     line-height: 1rem;
+    font-family: "LiberationSans-R";
+    letter-spacing: 0.6px;
 }
+

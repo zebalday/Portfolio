@@ -1,0 +1,6 @@
+.content-container{
+    min-height: 700px;
+    width: 95%;
+    margin: 1rem auto;
+    border: 1px solid white;
+}
