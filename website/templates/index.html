@@ -10,7 +10,40 @@
 
 {% block page_content %}
     <div class="content-container">
-
+        <div class="sections-container">
+            <div class="section section-profile" id="section-profile">
+                <div class="section-title profile-name">
+                    <h1>Sebastian Alday</h1>
+                    <h4>Senior Python / Django Developer</h4>
+                </div>
+                <div class="section-content">
+                    <div class="profile-info">
+                        <p>Informatic Engineer based on Chile, South America. I'm focused on building scalable, innovative, user-friendly, and well tested applications with Python and Django Framework.</p>
+                        <p>Feel free to navigate through my coding projects and blog posts where I write about everything related to python & other programming topics.</p>
+                        <p>Feel free to review the source code of my projects on GitHub.</p>
+                        <div class="profile-buttons">
+                            <button class="btn-link btn-github"><i class="fa-brands fa-github"></i>Github</button>
+                            <button class="btn-link btn-portfolio"><i class="fa-solid fa-laptop-code"></i>Portfolio</button>
+                        </div>
+                    </div>
+                    <div class="profile-image-container">
+                        <img src="{% static '/img/ZebaldayPortfolioStack1000x1000.png' %}" alt="" >
+                    </div>
+                </div>
+            </div>
+            <div class="section section-projects" id="section-projects">
+                <div class="section-title"><h1>Featured Projects</h1></div>
+                <div class="section-content"></div>
+            </div>
+            <div class="section section-skills" id="section-skills">
+                <div class="section-title"><h1>Skills</h1></div>
+                <div class="section-content"></div>
+            </div>
+            <div class="section section-blog-posts" id="section-blog-posts">
+                <div class="section-title"><h1>Latest Blog Posts</h1></div>
+                <div class="section-content"></div>
+            </div>
+        </div>
     </div>
 {% endblock page_content %}
 

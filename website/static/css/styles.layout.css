@@ -132,13 +132,15 @@ navbar {
     font-family: "LemonMilk-R";
 }
 
-#toggle:active {
+#toggle:active, #toggle:active>svg  {
     color: var(--color-light-terciary-a50);
 }
 
 #toggle>.fa-caret-right{
-    padding: 0.5rem;
+    padding: 0;
+    margin: auto 0.5rem;
     font-size: 1.5rem;
+    transition: all 0.3s;
 }
 
 #menu {
@@ -285,6 +287,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .footer-social>ul {
@@ -306,11 +309,11 @@ footer {
     font-size: 2rem;
 }
 
-.svg-inline--fa:hover {
+.footer-social .fa-github:active,
+.footer-social .fa-linkedin:active,
+.footer-social .fa-envelope:active,
+.footer-social .fa-instagram:active {
     color: var(--color-light-terciary-a50);
-    -webkit-box-shadow: 2px 2px 5px 2px var(--color-dark-secondary-a80);
-    box-shadow: 2px 2px 5px 2px var(--color-dark-secondary-a80);
-    transition: all 0.3s;
 }
 
 /* FOOTER RESPONSIVENESS */
