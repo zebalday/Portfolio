@@ -11,6 +11,7 @@
 {% block page_content %}
     <div class="content-container">
         <div class="sections-container">
+
             <div class="section section-profile" id="section-profile">
                 <div class="section-title profile-name">
                     <h1>Sebastian Alday</h1>
@@ -31,14 +32,23 @@
                     </div>
                 </div>
             </div>
+
             <div class="section section-projects" id="section-projects">
                 <div class="section-title"><h1>Featured Projects</h1></div>
-                <div class="section-content"></div>
+                <div class="section-content">
+                    {% for project in featured_projects %}
+                        <div class="project-container">
+                            <img src="{{ project.thumbnail.url }}">
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
+
             <div class="section section-skills" id="section-skills">
                 <div class="section-title"><h1>Skills</h1></div>
                 <div class="section-content"></div>
             </div>
+
             <div class="section section-blog-posts" id="section-blog-posts">
                 <div class="section-title"><h1>Latest Blog Posts</h1></div>
                 <div class="section-content"></div>
