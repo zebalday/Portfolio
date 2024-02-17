@@ -39,6 +39,8 @@
                     {% for project in featured_projects %}
                         <div class="project-container">
                             <img src="{{ project.thumbnail.url }}">
+                            <h4 class="project-title">{{project.title}}</h4>
+                            <p class="project-description">{{project.short_description}}</p>
                         </div>
                     {% endfor %}
                 </div>

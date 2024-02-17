@@ -302,7 +302,7 @@ class Project(models.Model):
     )
     thumbnail = models.ImageField(
         verbose_name="Thumbnail",
-        upload_to="ProjectThumbnails/",
+        upload_to="projectsthumbnails/",
         null = True,
         blank= True
     )
