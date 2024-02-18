@@ -1,7 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth.models import User as UserBase
+from django.contrib.auth.admin import UserAdmin
 from .models import User, Project, Technology, Language, Framework, Software, Library, CommentProject
 
+
 class AdminUser(admin.ModelAdmin):
+    model = User
     readonly_fields = ('created_at','updated_at')
     list_display = ('username', 'email')
     search_fields = ('name','username','email', 'languages')
@@ -51,6 +55,7 @@ class AdminLibrary(admin.ModelAdmin):
 
 
 # Register your models here.
+#admin.site.unregister(UserBase)
 admin.site.register(User, AdminUser)
 admin.site.register(Project, AdminProject)
 admin.site.register(CommentProject, AdminCommentOnProject)

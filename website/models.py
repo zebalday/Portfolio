@@ -1,6 +1,9 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from datetime import datetime
+from django.utils import timezone
 
 
 """
@@ -19,6 +22,19 @@ class Technology(models.Model):
         unique = True,
         blank = False,
         null = False,
+    )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Backend?",
+    )
+    is_frontend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Frontend?",
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -58,6 +74,19 @@ class Language(models.Model):
         blank = False,
         null = False,
     )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Backend?",
+    )
+    is_frontend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Frontend?",
+    )
     # Datetime
     created_at = models.DateTimeField(
         auto_now_add = True,
@@ -96,6 +125,19 @@ class Framework(models.Model):
         blank = False,
         null = False,
     )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Backend?",
+    )
+    is_frontend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Frontend?",
+    )
     # Datetime
     created_at = models.DateTimeField(
         auto_now_add = True,
@@ -133,6 +175,19 @@ class Library(models.Model):
         unique = True,
         blank = False,
         null = False,
+    )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Backend?",
+    )
+    is_frontend = models.BooleanField(
+        default = False,
+        null = True,
+        blank = True,
+        verbose_name = "Is Frontend?",
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -263,7 +318,7 @@ class User(models.Model):
     class Meta:
         verbose_name = "User"
         verbose_name_plural = "Users"
-        ordering = ["username"]
+        #ordering = ["username"]
 
 
 """

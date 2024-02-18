@@ -37,10 +37,15 @@
                 <div class="section-title"><h1>Featured Projects</h1></div>
                 <div class="section-content">
                     {% for project in featured_projects %}
-                        <div class="project-container">
-                            <img src="{{ project.thumbnail.url }}">
-                            <h4 class="project-title">{{project.title}}</h4>
-                            <p class="project-description">{{project.short_description}}</p>
+                        <div class="project-container" onclick="{% comment %} REDIRECCIÓN AL PROJECTO {% endcomment %}">
+                            <div class="thumbnail">
+                                <span class="click-me">CLICK TO SEE</span>
+                                <img src="{{ project.thumbnail.url }}">
+                            </div>
+                            <div class="info">
+                                <h4 class="project-title">{{project.title}}</h4>
+                                <p class="project-description">{{project.short_description}}</p>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
@@ -48,7 +53,13 @@
 
             <div class="section section-skills" id="section-skills">
                 <div class="section-title"><h1>Skills</h1></div>
-                <div class="section-content"></div>
+                <div class="section-content">
+                    {% for skill in skills %}
+                        <div class="skill-container">
+
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="section section-blog-posts" id="section-blog-posts">
