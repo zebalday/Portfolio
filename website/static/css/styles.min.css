@@ -1,59 +1,48 @@
 /* COLOR VARIABLES */
 :root {
     /** CSS DARK PRIMARY COLORS */
-    --color-dark-primary-a0: #ffffff;
-    --color-dark-primary-a10: #b9bac4;
-    --color-dark-primary-a20: #787a8d;
-    --color-dark-primary-a30: #3b3f59;
-    --color-dark-primary-a50: #000929;
-    --color-dark-primary-a60: #020721;
-    --color-dark-primary-a70: #020419;
-    --color-dark-primary-a80: #01020f;
-    --color-dark-primary-a90: #000000;
+    --color-dark-primary-a0:  #ffffff;
+    --color-dark-primary-a10:  #c2c2c2;
+    --color-dark-primary-a20:  #898989;
+    --color-dark-primary-a30:  #545454;
+    --color-dark-primary-a50:  #242424;
+    --color-dark-primary-a60:  #1d1d1d;
+    --color-dark-primary-a70:  #161616;
+    --color-dark-primary-a80:  #0d0d0d;
+    --color-dark-primary-a90:  #000000;
 
     /** CSS DARK SECONDARY COLORS */
-    --color-dark-secondary-a0: #ffffff;
-    --color-dark-secondary-a10: #bfb8c9;
-    --color-dark-secondary-a20: #837695;
-    --color-dark-secondary-a30: #4a3a64;
-    --color-dark-secondary-a50: #150036;
-    --color-dark-secondary-a60: #14002a;
-    --color-dark-secondary-a70: #11001f;
-    --color-dark-secondary-a80: #090013;
-    --color-dark-secondary-a90: #000000;
+    --color-dark-secondary-a0:  #ffffff;
+    --color-dark-secondary-a10:  #b9b9bd;
+    --color-dark-secondary-a20:  #77777f;
+    --color-dark-secondary-a30:  #3b3b46;
+    --color-dark-secondary-a50:  #010014;
+    --color-dark-secondary-a60:  #010010;
+    --color-dark-secondary-a70:  #00000b;
+    --color-dark-secondary-a80:  #000006;
+    --color-dark-secondary-a90:  #000000;
 
     /** CSS LIGHT PRIMARY COLORS */
-    --color-light-primary-a0: #ffffff;
-    --color-light-primary-a10: #d4d1f7;
-    --color-light-primary-a20: #a6a5ee;
-    --color-light-primary-a30: #757be4;
-    --color-light-primary-a50: #3054d9;
-    --color-light-primary-a60: #2c3f9e;
-    --color-light-primary-a70: #242c67;
-    --color-light-primary-a80: #181934;
-    --color-light-primary-a90: #000000;
+    --color-light-primary-a0:  #ffffff;
+    --color-light-primary-a10:  #d4ebfc;
+    --color-light-primary-a20:  #a7d8f9;
+    --color-light-primary-a30:  #71c5f6;
+    --color-light-primary-a50:  #00b2f2;
+    --color-light-primary-a60:  #1d82af;
+    --color-light-primary-a70:  #1f5571;
+    --color-light-primary-a80:  #172c39;
+    --color-light-primary-a90:  #000000;
 
     /** CSS LIGHT SECONDARY COLORS */
-    --color-light-secondary-a0: #ffffff;
-    --color-light-secondary-a10: #d2f2ce;
-    --color-light-secondary-a20: #a2e59e;
-    --color-light-secondary-a30: #6cd66e;
-    --color-light-secondary-a50: #00c738;
-    --color-light-secondary-a60: #1b912d;
-    --color-light-secondary-a70: #1d5f22;
-    --color-light-secondary-a80: #163116;
-    --color-light-secondary-a90: #000000;
-
-    /** CSS LIGHT TERCIARY COLORS */
-    --color-light-terciary-a0: #ffffff;
-    --color-light-terciary-a10: #fff4cc;
-    --color-light-terciary-a20: #ffe998;
-    --color-light-terciary-a30: #fcde61;
-    --color-light-terciary-a50: #f5d400;
-    --color-light-terciary-a60: #b29a16;
-    --color-light-terciary-a70: #746418;
-    --color-light-terciary-a80: #3b3313;
-    --color-light-terciary-a90: #000000;
+    --color-light-secondary-a0:  #ffffff;
+    --color-light-secondary-a10:  #ffe4c6;
+    --color-light-secondary-a20:  #ffc98e;
+    --color-light-secondary-a30:  #fbaf55;
+    --color-light-secondary-a50:  #f29500;
+    --color-light-secondary-a60:  #b06e10;
+    --color-light-secondary-a70:  #734913;
+    --color-light-secondary-a80:  #3b2710;
+    --color-light-secondary-a90:  #000000;
 
     /* OTHER COLORS */
     --django-primary-color: #20AA76;
@@ -122,8 +111,16 @@
 /* GENERAL STYLES */
 html {
     margin: 0 auto;
-    line-height: 1rem;
     font-family: "LiberationSans-R";
+    line-height: 1rem;
     letter-spacing: 0.6px;
 }
 
+/* SPECIAL STYLES */
+.highlighted-text{
+    background: var(--color-light-secondary-a50);
+    background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a20) 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

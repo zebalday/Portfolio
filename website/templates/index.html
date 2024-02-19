@@ -1,75 +1,42 @@
 {% extends "layout.html" %}
 {% load static %}
 
-{% block page_title %}Home{% endblock page_title %}
+<!--TITLE-->
+{% block page_title %} Home{% endblock page_title %}
 
+
+<!--STYLES-->
 {% block page_styles %}
-    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.index.css' %}" >
+    <link href="{% static '/css/styles.index.css' %}" rel="stylesheet" type="text/css">
 {% endblock page_styles %}
 
 
+<!--CONTENT-->
 {% block page_content %}
-    <div class="content-container">
-        <div class="sections-container">
-
-            <div class="section section-profile" id="section-profile">
-                <div class="section-title profile-name">
-                    <h1>Sebastian Alday</h1>
-                    <h4>Senior Python / Django Developer</h4>
-                </div>
-                <div class="section-content">
-                    <div class="profile-info">
-                        <p>Informatic Engineer based on Chile, South America. I'm focused on building scalable, innovative, user-friendly, and well tested applications with Python and Django Framework.</p>
-                        <p>Feel free to navigate through my coding projects and blog posts where I write about everything related to python & other programming topics.</p>
-                        <p>Feel free to review the source code of my projects on GitHub.</p>
-                        <div class="profile-buttons">
-                            <button class="btn-link btn-github"><i class="fa-brands fa-github"></i>Github</button>
-                            <button class="btn-link btn-portfolio"><i class="fa-solid fa-laptop-code"></i>Portfolio</button>
-                        </div>
-                    </div>
-                    <div class="profile-image-container">
-                        <img src="{% static '/img/ZebaldayPortfolioStack1000x1000.png' %}" alt="" >
-                    </div>
-                </div>
-            </div>
-
-            <div class="section section-projects" id="section-projects">
-                <div class="section-title"><h1>Featured Projects</h1></div>
-                <div class="section-content">
-                    {% for project in featured_projects %}
-                        <div class="project-container" onclick="{% comment %} REDIRECCIÓN AL PROJECTO {% endcomment %}">
-                            <div class="thumbnail">
-                                <span class="click-me">CLICK TO SEE</span>
-                                <img src="{{ project.thumbnail.url }}">
-                            </div>
-                            <div class="info">
-                                <h4 class="project-title">{{project.title}}</h4>
-                                <p class="project-description">{{project.short_description}}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="section section-skills" id="section-skills">
-                <div class="section-title"><h1>Skills</h1></div>
-                <div class="section-content">
-                    {% for skill in skills %}
-                        <div class="skill-container">
-
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="section section-blog-posts" id="section-blog-posts">
-                <div class="section-title"><h1>Latest Blog Posts</h1></div>
-                <div class="section-content"></div>
-            </div>
+    <div class="profile-container">
+        <div class="profile-thumbnail">
+            <img src="{% static '/img/ZebaldayPortfolioLogo1000x1000-2.png' %}" alt="" width=200px>
+        </div>
+        <div class="profile-title">
+            <h2>Informatic Engineer</h2>
+            <h2>Software & Web Developer</h2>
+        </div>
+        <div class="profile-description">
+            <p>Hi! I'm <span class="highlighted-text">Sebastian</span>, a software developer based on <span class="highlighted-text">Chile</span>, and this is my space. Here you'll be able to see all my <span class="highlighted-text">projects</span>, blog posts, review my code, and know me a little better.</p>
+            <p>Feel free to visit <span class="highlighted-text">these links!</span></p>
+        </div>
+        <div class="page-sections">
+            <button><i class="fa-solid fa-briefcase"></i>Projects</button>
+            <button><i class="fa-solid fa-comments"></i></i>Blog discussion</button>
+            <button><i class="fa-brands fa-github"></i>Github</button>
+            <button><i class="fa-solid fa-user"></i>About me</button>
         </div>
     </div>
 {% endblock page_content %}
 
+
+<!--SCRIPTS-->
 {% block page_scripts %}
 
 {% endblock page_scripts %}
+

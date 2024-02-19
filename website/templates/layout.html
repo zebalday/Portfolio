@@ -44,52 +44,35 @@
 
         <!-- TITLE & NAVITAGION HEADER -->
         <header>
-            <h1 class="header-title">zebalday</h1>
-            <h3 class="header-typing-subtitle" id="header-typing-subtitle"></h3>
-            <div class="header-navbar-container">
-                <navbar>
-                    <div id="toggle"><i class="fa-solid fa-caret-right fa-rotate-by" style="--fa-rotate-angle: 0deg;" id="fa-caret-right"></i>Sections</div>
-                    <div id="menu" class="hide-menu">
-                        <ul>
-                            <li>Home</li>
-                            <li>Proyects</li>
-                            <li>CV</li>
-                            <li>Blog</li>
-                            <li>About me</li>
-                        </ul>
-                    </div>
-                </navbvar>
+            <div class="header-items-container">
+                <div class="header-title">
+                    <h1>zebalday</h1>
+                </div>
+                <div class="header-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </header>
 
         <!-- PAGE CONTENT -->
-        {% block page_content %}
-        {% comment %} CHILD TEMPLATE CONTENT {% endcomment %}
-        {% endblock page_content %}
+        <div class="content-container">
+            {% block page_content %}
+            {% comment %} CHILD TEMPLATE CONTENT {% endcomment %}
+            {% endblock page_content %}
+        </div>
 
+        <!-- PAGE FOOTER-->
         <footer>
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="{% static '/img/ZebaldayPortfolioLogo1000x1000-2.png' %}" alt="">
-                </div>
                 <div class="footer-info">
                     <p>&copy; 2024 zebalday.dev by Sebastián Alday</p>
                 </div>
-                <div class="footer-social">
-                    <ul>
-                        <li><a href=""><i class="fa-brands fa-github"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li><a href=""><i class="fa-solid fa-envelope"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                    </ul>
-                </div>
+
             </div>
         </footer>
         
         <!-- SCRIPTS-->
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <script type="text/javascript" src={% static "/js/responsive-functions.js" %}></script>
-        <script type="text/javascript" src={% static "/js/typing-effect.js" %}></script>
         {% block page_scripts %}
         {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
         {% endblock page_scripts %}

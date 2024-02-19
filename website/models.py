@@ -1,60 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractUser
-from datetime import datetime
-from django.utils import timezone
-
-
-"""
-==================
-    TECHNOLOGY
-==================
--Name
--Created At
--Updated At
-"""
-class Technology(models.Model):
-    #Text
-    name = models.CharField(
-        max_length = 100,
-        verbose_name = "Name",
-        unique = True,
-        blank = False,
-        null = False,
-    )
-    # Backend & Frontend
-    is_backend = models.BooleanField(
-        default = False,
-        null = True,
-        blank = True,
-        verbose_name = "Is Backend?",
-    )
-    is_frontend = models.BooleanField(
-        default = False,
-        null = True,
-        blank = True,
-        verbose_name = "Is Frontend?",
-    )
-    # Datetime
-    created_at = models.DateTimeField(
-        auto_now_add = True,
-        verbose_name = "Created on"
-    )
-    updated_at = models.DateTimeField(
-        auto_now = True,
-        verbose_name = "Updated on"
-    )
-
-    # Functions
-    def __str__(self) -> str:
-        return self.name
-    
-    #Meta Class
-    class Meta:
-        verbose_name = "Technology"
-        verbose_name_plural = "Technologies"
-        ordering = ["name"]
+from django.core.exceptions import ValidationError
 
 
 """
@@ -66,26 +12,26 @@ class Technology(models.Model):
 -Updated At
 """
 class Language(models.Model):
-    #Text
+    # Info
     name = models.CharField(
-        max_length = 100,
         verbose_name = "Name",
+        max_length = 100,
         unique = True,
         blank = False,
         null = False,
     )
     # Backend & Frontend
     is_backend = models.BooleanField(
+        verbose_name = "Is Backend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Backend?",
     )
     is_frontend = models.BooleanField(
+        verbose_name = "Is Frontend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Frontend?",
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -117,7 +63,7 @@ class Language(models.Model):
 -Updated At
 """
 class Framework(models.Model):
-    #Text
+    # Info
     name = models.CharField(
         max_length = 100,
         verbose_name = "Name",
@@ -127,16 +73,16 @@ class Framework(models.Model):
     )
     # Backend & Frontend
     is_backend = models.BooleanField(
+        verbose_name = "Is Backend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Backend?",
     )
     is_frontend = models.BooleanField(
+        verbose_name = "Is Frontend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Frontend?",
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -168,7 +114,7 @@ class Framework(models.Model):
 -Updated At
 """
 class Library(models.Model):
-    #Text
+    # Info
     name = models.CharField(
         max_length = 100,
         verbose_name = "Name",
@@ -178,16 +124,16 @@ class Library(models.Model):
     )
     # Backend & Frontend
     is_backend = models.BooleanField(
+        verbose_name = "Is Backend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Backend?",
     )
     is_frontend = models.BooleanField(
+        verbose_name = "Is Frontend?",
         default = False,
         null = True,
         blank = True,
-        verbose_name = "Is Frontend?",
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -219,13 +165,26 @@ class Library(models.Model):
 -Updated At
 """
 class Software(models.Model):
-    #Text
+    # Info
     name = models.CharField(
         max_length = 100,
         verbose_name = "Name",
         unique = True,
         blank = False,
         null = False,
+    )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        verbose_name = "Is Backend?",
+        default = False,
+        null = True,
+        blank = True,
+    )
+    is_frontend = models.BooleanField(
+        verbose_name = "Is Frontend?",
+        default = False,
+        null = True,
+        blank = True,
     )
     # Datetime
     created_at = models.DateTimeField(
@@ -249,6 +208,57 @@ class Software(models.Model):
 
 
 """
+==================
+    TECHNOLOGY
+==================
+-Name
+-Created At
+-Updated At
+"""
+class Technology(models.Model):
+    #Text
+    name = models.CharField(
+        max_length = 100,
+        verbose_name = "Name",
+        unique = True,
+        blank = False,
+        null = False,
+    )
+    # Backend & Frontend
+    is_backend = models.BooleanField(
+        verbose_name = "Is Backend?",
+        default = False,
+        null = True,
+        blank = True,
+    )
+    is_frontend = models.BooleanField(
+        verbose_name = "Is Frontend?",
+        default = False,
+        null = True,
+        blank = True,
+    )
+    # Datetime
+    created_at = models.DateTimeField(
+        auto_now_add = True,
+        verbose_name = "Created on"
+    )
+    updated_at = models.DateTimeField(
+        auto_now = True,
+        verbose_name = "Updated on"
+    )
+
+    # Functions
+    def __str__(self) -> str:
+        return self.name
+    
+    #Meta Class
+    class Meta:
+        verbose_name = "Technology"
+        verbose_name_plural = "Technologies"
+        ordering = ["name"]
+
+
+"""
 ===========
     USER
 ===========
@@ -259,7 +269,7 @@ class Software(models.Model):
 - Interests (Related to Interest MODEL)
 """
 class User(models.Model):
-    # Text
+    # Info
     full_name = models.CharField(
         max_length = 150,
         verbose_name="Full name",
@@ -285,11 +295,6 @@ class User(models.Model):
         blank = False,
         null = False,
     )
-    technologies = models.ManyToManyField(
-        Technology,
-        verbose_name="Liked Technologies",
-        blank = True,
-    )
     languages = models.ManyToManyField(
         Language,
         verbose_name="Liked Languages",
@@ -298,6 +303,21 @@ class User(models.Model):
     framework = models.ManyToManyField(
         Framework,
         verbose_name="Liked Frameworks",
+        blank = True,
+    )
+    libraries = models.ManyToManyField(
+        Library,
+        verbose_name="Liked Libraries",
+        blank = True,
+    )
+    softwares = models.ManyToManyField(
+        Software,
+        verbose_name="Liked Softwares",
+        blank = True,
+    )
+    technologies = models.ManyToManyField(
+        Technology,
+        verbose_name="Liked Technologies",
         blank = True,
     )
     # Datetime
@@ -329,7 +349,11 @@ class User(models.Model):
 - Brief Description (For thumbnail purposes)
 - Description
 - Image (Thumbnail)
-- Technologies (Associated)
+- Languages
+- Frameworks
+- Libraries
+- Software
+- Technologies
 - Created At
 - Updated At
 """
@@ -363,11 +387,6 @@ class Project(models.Model):
     )
 
     # FK's
-    technologies = models.ManyToManyField(
-        Technology,
-        verbose_name="Used Technologies",
-        blank = True,
-    )
     languages = models.ManyToManyField(
         Language,
         verbose_name="Used Languages",
@@ -386,6 +405,11 @@ class Project(models.Model):
     softwares = models.ManyToManyField(
         Software,
         verbose_name="Used Softwares",
+        blank = True,
+    )
+    technologies = models.ManyToManyField(
+        Technology,
+        verbose_name="Used Technologies",
         blank = True,
     )
 
@@ -410,6 +434,44 @@ class Project(models.Model):
         ordering = ["title"]
 
 
+# Creates different folder for each created project
+def get_image_upload_path(instance, filename):
+    # Define the upload path based on the property_id
+    upload_path = f"project{instance.project.id}/{filename}"
+    return upload_path
+
+# Validates image max size (3MB)
+def validate_image_size(value):
+    if value.size > 1024 * 1024 * 3:
+        raise ValidationError("Image's too big (Max. 3 mb). Compress it.")
+    
+
+"""
+=================================
+    PROJECT IMAGE CLASS MODEL
+=================================
+- Project FK
+- Image
+"""
+class PropertyImage(models.Model):
+    property = models.ForeignKey(
+        Project,
+        verbose_name = "Project Images",
+        on_delete = models.CASCADE,
+        blank=False,
+        null=False
+    )
+    image = models.ImageField(
+        upload_to= get_image_upload_path,
+        validators=[validate_image_size],
+        null = True,
+        blank= True
+    )
+    class Meta:
+        verbose_name = "Image"
+        verbose_name_plural = "Images"
+
+
 """
 =========================
     COMMENT ON PROJECT
@@ -429,18 +491,18 @@ class CommentProject(models.Model):
         blank = False,
         null = False,
     )
+    project = models.ForeignKey(
+        Project,
+        on_delete = models.CASCADE,
+        verbose_name = "Project",
+        null = False,
+    )
     content = models.TextField(
         max_length = 250,
         verbose_name = "Content",
         blank = False,
         null = False,
         editable = False
-    )
-    project = models.ForeignKey(
-        Project,
-        on_delete = models.CASCADE,
-        verbose_name = "Project",
-        null = False,
     )
     # Datetime
     created_at = models.DateTimeField(
