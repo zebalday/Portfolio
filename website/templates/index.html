@@ -15,7 +15,7 @@
 {% block page_content %}
     <div class="profile-container">
         <div class="profile-thumbnail">
-            <img src="{% static '/img/ZebaldayPortfolioLogo1000x1000-2.png' %}" alt="" width=200px>
+            <img src="{% static '/img/avatars/cartoon-2.png' %}" alt="Zebalday profile avatar">
         </div>
         <div class="profile-title">
             <h2>Informatic Engineer</h2>
@@ -23,13 +23,14 @@
         </div>
         <div class="profile-description">
             <p>Hi! I'm <span class="highlighted-text">Sebastian</span>, a software developer based on <span class="highlighted-text">Chile</span>, and this is my space. Here you'll be able to see all my <span class="highlighted-text">projects</span>, blog posts, review my code, and know me a little better.</p>
+            <p><span class="highlighted-text">Right now</span> I'm focused on building scalable, <span class="highlighted-text">well designed</span>, and innovative web applications with <span class="highlighted-text">Python</span> and <span class="highlighted-text">Django Framework.</span></p>
             <p>Feel free to visit <span class="highlighted-text">these links!</span></p>
         </div>
         <div class="page-sections">
-            <button><i class="fa-solid fa-briefcase"></i>Projects</button>
-            <button><i class="fa-solid fa-comments"></i></i>Blog discussion</button>
-            <button><i class="fa-brands fa-github"></i>Github</button>
-            <button><i class="fa-solid fa-user"></i>About me</button>
+            <button onClick="location.href='{% url 'portfolio' %}'"><i class="fa-solid fa-briefcase"></i>Projects</button>
+            <button onClick=""><i class="fa-solid fa-comments"></i></i>Blog discussion</button>
+            <button onClick=""><i class="fa-brands fa-github"></i>Github</button>
+            <button onClick=""><i class="fa-solid fa-user"></i>About me</button>
         </div>
     </div>
 {% endblock page_content %}
@@ -37,6 +38,6 @@
 
 <!--SCRIPTS-->
 {% block page_scripts %}
-
+    <script src="{% static '/js/index-functions.js' %}"></script>
 {% endblock page_scripts %}
 

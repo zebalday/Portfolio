@@ -18,10 +18,18 @@
 
     .profile-thumbnail{
         /* border: 1px solid white; */
+        width: 100%;
+
+        img{
+            width: inherit;
+            border-radius: 50%;
+            animation: glow 10s ease-in-out infinite normal;
+            border: 0.5px solid var(--color-dark-primary-a30);
+        }
     }
 
     .profile-title{
-        padding: 0.5rem 0;
+        padding: 1rem 0;
         text-align: center;
         h2{
             margin: 0 auto;
@@ -90,3 +98,6 @@
         max-width: 35%;
     }
 }
+
+
+

@@ -21,6 +21,7 @@ body{
         min-height: 100px;
         margin: 5rem auto;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
@@ -34,7 +35,6 @@ body{
         
     }
 }
-
 
 
 header {
@@ -58,7 +58,7 @@ header {
         line-height: 2rem;
         text-align: center;
         background: var(--color-light-secondary-a50);
-        background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-dark-secondary-a30) 50%);
+        background: linear-gradient(to right, var(--color-light-secondary-a50) 52%, var(--color-dark-secondary-a30) 50%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -77,10 +77,6 @@ footer{
     font-family: "Roboto-B";
     left: 10%;
     right: 10%;
-
-    .footer-logo{
-
-    }
 
     .footer-info{
         background: var(--color-light-secondary-a50);
@@ -125,5 +121,23 @@ footer{
     footer{
         left:30%;
         right:30%;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+    0% {
+        box-shadow: -5px 5px 20px -5px var(--color-light-secondary-a50);
+        
+    }
+    50%{
+        box-shadow: 5px 5px 20px -5px var(--color-light-secondary-a50);
+    }
+    75%{
+        box-shadow: 5px -5px 20px -5px var(--color-light-secondary-a50);
+    }
+    100% {
+        box-shadow:-5px 5px 20px -5px var(--color-light-secondary-a50);
+                        
     }
 }

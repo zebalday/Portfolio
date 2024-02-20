@@ -119,7 +119,7 @@ html {
 /* SPECIAL STYLES */
 .highlighted-text{
     background: var(--color-light-secondary-a50);
-    background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a20) 50%);
+    background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a30) 50%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -412,6 +412,12 @@ class Project(models.Model):
         verbose_name="Used Technologies",
         blank = True,
     )
+    
+    # Public / Visible
+    is_public = models.BooleanField(
+        verbose_name = "Show this project?",
+        default = False,
+    )
 
     # Datetime
     created_at = models.DateTimeField(
