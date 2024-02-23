@@ -386,6 +386,22 @@ class Project(models.Model):
         blank= True
     )
 
+    # Links
+    github_url = models.URLField(
+        verbose_name = "GitHub Repository",
+        max_length = 250,
+        editable = True,
+        blank = True,
+        null = True
+    )
+    project_url = models.URLField(
+        verbose_name = "Project Link",
+        max_length = 250,
+        editable = True,
+        blank = True,
+        null = True
+    )
+
     # FK's
     languages = models.ManyToManyField(
         Language,

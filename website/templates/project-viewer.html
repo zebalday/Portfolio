@@ -6,25 +6,52 @@
 
 {% block page_styles %}
     <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.project-viewer.css' %}" >
+    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.project-image-slider.css' %}" >
+
 {% endblock page_styles %}
 
 
 {% block page_content %}
     {% for project in projects_full %}
         <div class="project-container">
-            <div class="title">
-                {{project.project.title}}
+            {% comment %} TITLE AND TAGS {% endcomment %}
+            <div class="project-banner">
+                <div class="title">
+                    {{project.project.title}}
+                </div>
+                {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
+                <div class="tags">
+                    {% include "includes/project-tags.html" %}
+                </div>
             </div>
-            {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
-            <div class="tags">
-                {% include "includes/project-tags.html" %}
+            {% comment %} PROJECT REVIEW {% endcomment %}
+            <div class="content">
+                {{project.project.description|safe}}
             </div>
-            <div class=""></div>
-            <div class=""></div>
+            {% comment %} PROJECT LINKS | GITHUB AND LINK TO PROJECT {% endcomment %}
+            <div class="links">
+                
+            </div>
+            {% comment %} PROJECT IMAGE GALLERY (IF HAS) {% endcomment %}
+            {% if project.project_images|length > 0 %}
+            <div class="project-images-slider">
+                <div class="ism-slider" data-transition_type="fade" data-radios="false" id="my-slider">
+                    <ol>
+                        {% for image in project.project_images %}
+                            <li>
+                                <img src="/media/{{image.image}}">
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock page_content %}
 
 
-{% block page_scripts %}{% endblock page_scripts %}
+{% block page_scripts %}
+    <script src="{% static 'js/project-images-slider.js' %}"></script>
+{% endblock page_scripts %}
 

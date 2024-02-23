@@ -16,7 +16,7 @@ body{
     }
 
     .content-container{
-        border: 1px solid white;
+        /* border: 1px solid white; */
         width: 100%;
         min-height: 100px;
         margin: 5rem auto;
