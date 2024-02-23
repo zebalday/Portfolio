@@ -1,0 +1,40 @@
+/* MEDIA LINKS COMPONENT */
+.media-container{
+    font-size: 2rem;
+    ul{
+        padding-inline-start: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    li{
+        padding: 1rem;
+    }
+    .svg-inline--fa{
+        color: wheat;
+    }
+}
+
+
+/* PROJECT TAGS (LANGAUGES, FRAMEWORK, LIBRARIES) */
+.tags{
+    width: auto;
+    .languages,
+    .framework,
+    .libraries{
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0.5rem 0;
+        line-height: 1.5rem;
+        .svg-inline--fa{
+            margin: 0 0.5rem;
+        }
+        >p{
+            margin: 0px 0rem 0px 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block page_title %}{{project.title}}{% endblock page_title %}
+
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.project-viewer.css' %}" >
+{% endblock page_styles %}
+
+
+{% block page_content %}
+    {% for project in projects_full %}
+        <div class="project-container">
+            <div class="title">
+                {{project.project.title}}
+            </div>
+            {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
+            <div class="tags">
+                {% include "includes/project-tags.html" %}
+            </div>
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+    {% endfor %}
+{% endblock page_content %}
+
+
+{% block page_scripts %}{% endblock page_scripts %}
+

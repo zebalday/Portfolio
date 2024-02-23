@@ -1,0 +1,21 @@
+
+
+
+/* RESPONSIVENESS */
+@media (min-width:320px) {
+
+}
+
+@media (min-width:570px) {
+    footer{
+        left:20%;
+        right:20%;
+    }
+}
+
+@media (min-width:1080px) {
+    footer{
+        left:30%;
+        right:30%;
+    }
+}

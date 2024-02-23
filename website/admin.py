@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.models import User as UserBase
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Project, Technology, Language, Framework, Software, Library, CommentProject
+from .models import User, Project, ProjectImage, Technology, Language, Framework, Software, Library, CommentProject
+from .forms import ProjectImageForm
 
 
 class AdminUser(admin.ModelAdmin):
@@ -11,11 +12,18 @@ class AdminUser(admin.ModelAdmin):
     search_fields = ('name','username','email', 'languages')
     ordering = ('username',)
 
+class AdminInlineImages(admin.TabularInline):
+    readonly_fields=['project']
+    model = ProjectImage
+    form = ProjectImageForm
+
 class AdminProject(admin.ModelAdmin):
     readonly_fields = ('created_at','updated_at')
     list_display = ('title', 'created_at')
     search_fields = ('languages','framework','softwares',)
     ordering = ('-created_at',)
+    inlines = [AdminInlineImages,]
+
 
 class AdminCommentOnProject(admin.ModelAdmin):
     readonly_fields = ('created_at',)
@@ -35,7 +43,7 @@ class AdminLanguage(admin.ModelAdmin):
     search_fields = ('name',)
     ordering = ('name',)
 
-class AdminFramwork(admin.ModelAdmin):
+class AdminFramework(admin.ModelAdmin):
     readonly_fields = ('created_at','updated_at')
     list_display = ('name',)
     search_fields = ('name',)
@@ -61,7 +69,7 @@ admin.site.register(Project, AdminProject)
 admin.site.register(CommentProject, AdminCommentOnProject)
 admin.site.register(Technology, AdminTechnology)
 admin.site.register(Language, AdminLanguage)
-admin.site.register(Framework, AdminFramwork)
+admin.site.register(Framework, AdminFramework)
 admin.site.register(Software, AdminSoftware)
 admin.site.register(Library, AdminLibrary)
 

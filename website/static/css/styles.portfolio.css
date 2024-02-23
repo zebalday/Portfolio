@@ -40,7 +40,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         background: linear-gradient(var(--color-dark-primary-a90), var(--color-dark-primary-a90)) padding-box,
                     linear-gradient(45deg, var(--color-light-secondary-a50), var(--color-dark-secondary-a50)) border-box;
         transition: all 1s;
@@ -109,8 +109,8 @@
 
     .project-card:hover{
         transform: scale(102%);
-        border-color: var(--color-dark-primary-a90);
-        animation: glow 5s ease-in-out infinite normal;
+        border-color: var(--color-light-secondary-a30);
+        box-shadow:-5px 5px 20px -5px var(--color-light-secondary-a50);
     }
 }
 
@@ -132,6 +132,8 @@
             flex-direction: row;
             align-items: stretch;
             height: 100%;
+            max-height: 15rem;
+
 
             .thumbnail{
                 flex: 0 0 50%;
@@ -154,11 +156,11 @@
         grid-template-columns: 46% 46%;
         grid-template-rows: max-content;
         justify-content: space-around;
+        align-items: stretch;
         column-gap: 1rem;
         row-gap: 3rem;
 
         .project-card{
-            /* flex-direction: column; */
 
             .title{
                 text-align: left;
@@ -169,11 +171,12 @@
 
 /* FILTERING EFFECTS */
 .show-card{
-    display: flex;
-    animation: showing-card 0.2 ease-in normal;
+    animation: showing-card 0.3s ease-in 1 normal;
+    display: flex !important;
 }
 .hide-card{
-    animation: hidding-card 0.2 ease-in normal;
+    animation: hidding-card 0.3s ease-in 1 normal;
+    display: none !important;
 }
 
 @keyframes showing-card {
@@ -191,6 +194,5 @@
     }
     100%{
         transform: scale(0%);
-        display: none;
     }
 }

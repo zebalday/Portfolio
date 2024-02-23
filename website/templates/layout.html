@@ -34,6 +34,7 @@
         <link href="{% static 'fontawesomefree/css/brands.min.css' %}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.min.css' %}" >
         <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.layout.css' %}" >
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.includes.css' %}" >
         {% block page_styles %}
         {% comment %} CHILD TEMPLATE STYLES {% endcomment %}
         {% endblock page_styles %}
@@ -63,6 +64,7 @@
 
         <!-- PAGE FOOTER-->
         <footer>
+            {% include "includes/media.html" %}
             <div class="footer-content">
                 <div class="footer-info">
                     <p>&copy; 2024 zebalday.dev by Sebastián Alday</p>

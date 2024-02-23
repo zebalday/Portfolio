@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Project, User, Language, Framework, Library
-from .forms import UserForm
+from .models import Project, ProjectImage, User, Language, Framework, Library
 
 # Create your views here.
 
@@ -14,9 +13,10 @@ class IndexView(TemplateView):
 
 class Portfolio(TemplateView):
     template_name = "portfolio.html"
+    context = {}
+    projects_full_info_list = []
 
     projects = Project.objects.filter(is_public=True)
-    projects_full_info_list = []
 
     # Relate project with its languages and framewworks
     for project in projects:
@@ -25,13 +25,13 @@ class Portfolio(TemplateView):
         related_libraries = project.libraries.all()
 
         if related_libraries.filter(name__in=("Pandas","Numpy","Seaborn","MatPlotLib")).exists():
-            filter_identifier = "filter-datascience"
+            filter_identifier = "filter-datascience filter-python"
         elif related_frameworks.filter(name="Django").exists():
-            filter_identifier = "filter-django"
+            filter_identifier = "filter-django filter-python"
         elif related_languages.filter(name="Python").exists():
             filter_identifier = "filter-python"
         else:
-            filter_identifier = ""
+            filter_identifier = None
 
         # Create dictionary with project and its tags
         full_project = {"project":project,
@@ -44,34 +44,47 @@ class Portfolio(TemplateView):
         # Add dictionary to the list of projects
         projects_full_info_list.append(full_project)
 
-    context = {
-        "projects_full":projects_full_info_list,
-    }
+    # Create page context
+    context["projects_full"] = projects_full_info_list
 
     def get(self, request):
         return render(request, self.template_name, self.context)
 
 
+class ProjectViewer(TemplateView):
+    template_name = "project-viewer.html"
+    context = {}
+    
+    def get(self, request, id):
 
-class RegisterUser(TemplateView):
-    template_name = "register.html"
-    user_form = UserForm
-    context = {
-        'user_form' : user_form,
-    }
+        # Empty list
+        projects_full_info_list = []
 
-    def get(self, request):
+        # Get Project from DB
+        project = Project.objects.get(id=id)
+
+        # Get related technologies from DB
+        languages = project.languages.all()
+        framework = project.framework.all()
+        libraries = project.libraries.all()
+
+        # Get project images from DB
+        project_images = ProjectImage.objects.filter(project_id=id)
+
+        # Create dictionary with project and its tags
+        full_project = {"project":project,
+                        "languages":languages,
+                        "framework":framework,
+                        "libraries":libraries,
+                        "project_images":project_images
+                        }
+
+        # Send info to context
+        projects_full_info_list.append(full_project)
+        self.context["projects_full"] = projects_full_info_list
+
+        # Render view
         return render(request, self.template_name, self.context)
 
-
-class Login(TemplateView):
-    template_name = "login.html"
-    user_form = UserForm
-    context = {
-        'user_form' : user_form,
-    }
-
-    def get(self, request):
-        return render(request, self.template_name, self.context)
-
-
+    def post(self, request):
+        pass

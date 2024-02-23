@@ -459,8 +459,8 @@ def validate_image_size(value):
 - Project FK
 - Image
 """
-class PropertyImage(models.Model):
-    property = models.ForeignKey(
+class ProjectImage(models.Model):
+    project = models.ForeignKey(
         Project,
         verbose_name = "Project Images",
         on_delete = models.CASCADE,

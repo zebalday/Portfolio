@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='home'),
     path('home', views.IndexView.as_view(), name='home'),
     path('portfolio', views.Portfolio.as_view(), name='portfolio'),
+    path('portfolio/projects/<int:id>', views.ProjectViewer.as_view(), name='project'),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

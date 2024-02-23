@@ -124,3 +124,19 @@ html {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* SPECIAL ANIMATIONS */
+@keyframes glow {
+    0% {
+        box-shadow: -5px 5px 20px -5px var(--color-light-secondary-a50);
+    }
+    50%{
+        box-shadow: 5px 5px 20px -5px var(--color-light-secondary-a50);
+    }
+    75%{
+        box-shadow: 5px -5px 20px -5px var(--color-light-secondary-a50);
+    }
+    100% {
+        box-shadow:-5px 5px 20px -5px var(--color-light-secondary-a50);
+    }
+}

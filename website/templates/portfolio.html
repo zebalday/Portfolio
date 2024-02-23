@@ -20,48 +20,21 @@
 
         {% comment %} PROJECTS ITERATION {% endcomment %}
         {% for project in projects_full %}
-        <div class="project-card{% if project.filter %} {{project.filter}}{% endif %}">
-            
-            {% comment %} PROJECTS IMAGE {% endcomment %}
-            <div class="thumbnail">
-                <img src="{{ project.project.thumbnail.url }}">
-            </div>
-            
-            {% comment %} PROJECTS INFO {% endcomment %}
-            <div class="details">
-                <div class="title">{{ project.project.title }}</div>
-                    <div class="tags" id="tags">
-                        
-                        {% comment %} PROJECT LANGUAGES ITERATION {% endcomment %}
-                        <div class="languages">
-                            <i class="fa-solid fa-code"></i>
-                            <p>
-                                {% for language in project.languages %}
-                                {{ language }}{% if not forloop.last %}, {% endif %}
-                                {% endfor %}
-                            </p>
-                        </div>
-                        
-                        {% comment %} PROJECT FRAMEWORK ITERATION {% endcomment %}
-                        {% if project.framework %}
-                        <div class="framework">
-                            <i class="fa-solid fa-gears"></i>
-                            {% for framework in project.framework %}
-                            <p><span class="tag">{{ framework }}</span></p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        
-                        {% comment %} PROJECT LIBRARIES ITERATION {% endcomment %}
-                        {% if project.libraries %}
-                        <div class="libraries">
-                            <i class="fa-solid fa-puzzle-piece"></i>
-                            {% for library in project.libraries %}
-                                <p><span class="tag">{{ library }}</span></p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        </div>
+            <div class="project-card{% if project.filter %} {{project.filter}}{% endif %}" onClick="location.href='portfolio/projects/{{project.project.id}}'">
+                
+                {% comment %} PROJECTS IMAGE {% endcomment %}
+                <div class="thumbnail">
+                    <img src="{{ project.project.thumbnail.url }}">
+                </div>
+                
+                {% comment %} PROJECTS INFO {% endcomment %}
+                <div class="details">
+                    <div class="title">
+                        {{ project.project.title }}
+                    </div>
+
+                    {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
+                    {% include "includes/project-tags.html" %}
 
                     {% comment %} PROJECTS SHORT DESCRIPTION {% endcomment %}
                     <div class="abstract">
