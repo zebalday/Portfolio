@@ -381,7 +381,7 @@ class Project(models.Model):
     )
     thumbnail = models.ImageField(
         verbose_name="Thumbnail",
-        upload_to="projectsthumbnails/",
+        upload_to="Portfolio/projectsthumbnails/",
         null = True,
         blank= True
     )
@@ -459,7 +459,7 @@ class Project(models.Model):
 # Creates different folder for each created project
 def get_image_upload_path(instance, filename):
     # Define the upload path based on the property_id
-    upload_path = f"project{instance.project.id}/{filename}"
+    upload_path = f"Portfolio/projectimages/project{instance.project.id}/{filename}"
     return upload_path
 
 # Validates image max size (3MB)
