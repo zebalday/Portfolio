@@ -133,7 +133,6 @@
 
             .thumbnail{
                 flex: 0 0 50%;
-                background-color: var(--color-light-primary-a0);
 
                 img{
                     max-width: 400px;

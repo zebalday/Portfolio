@@ -32,6 +32,8 @@
         <!-- STYLES -->
         <link href="{% static 'fontawesomefree/css/solid.min.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'fontawesomefree/css/brands.min.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.light.css' %}" >
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.dark.css' %}" >
         <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.min.css' %}" >
         <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.layout.css' %}" >
         <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.includes.css' %}" >
@@ -49,8 +51,9 @@
                 <div class="header-title" onClick="location.href='{% url 'home' %}'">
                     <h1>zebalday</h1>
                 </div>
-                <div class="header-menu">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fa-solid fa-moon" id="fa-moon"></i>
+                    <i class="fa-solid fa-sun" id="fa-sun"></i>
                 </div>
             </div>
         </header>
@@ -75,6 +78,7 @@
         
         <!-- SCRIPTS-->
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <script src="{% static 'js/theme-toggle.js' %}"></script>
         {% block page_scripts %}
         {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
         {% endblock page_scripts %}

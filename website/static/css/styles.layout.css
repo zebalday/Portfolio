@@ -36,7 +36,6 @@ body{
     }
 }
 
-
 header {
     .header-items-container{
         /* border: 1px solid white; */
@@ -57,16 +56,12 @@ header {
     h1{
         line-height: 2rem;
         text-align: center;
-        background: var(--color-light-secondary-a50);
         background: linear-gradient(to right, var(--color-light-secondary-a50) 52%, var(--color-dark-secondary-a30) 50%);
-        -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: var(--color-light-secondary-a80) 0px 0px 50px;
     }
 }
-
-
 
 footer{
     display: flex;

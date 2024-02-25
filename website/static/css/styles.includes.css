@@ -13,7 +13,7 @@
         padding: 1rem;
     }
     .svg-inline--fa{
-        color: wheat;
+        color: var(--color-light-secondary-a20);
     }
 }
 

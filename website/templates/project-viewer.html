@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load static %}
 
-{% block page_title %}{{project.title}}{% endblock page_title %}
+{% block page_title %}{{projects_full.0.project.title}}{% endblock page_title %}
 
 
 {% block page_styles %}
@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.project-image-slider.css' %}" >
 
 {% endblock page_styles %}
-
 
 {% block page_content %}
     {% for project in projects_full %}
@@ -23,6 +22,14 @@
                 <div class="tags">
                     {% include "includes/project-tags.html" %}
                 </div>
+            </div>
+            <div class="link-buttons">
+                {% if project.project.project_url %}
+                    <button class="project-link-btn link-btn"><a target="_blank" href="{{project.project.project_url}}"><i class="fa-solid fa-link"></i> Go to project</a></button>
+                {% endif %}
+                {% if project.project.github_url %}
+                    <button class="project-link-btn git-btn"><a target="_blank" href="{{project.project.github_url}}"><i class="fa-brands fa-github"></i> View Repository</a></button>
+                {% endif %}
             </div>
             {% comment %} PROJECT REVIEW {% endcomment %}
             <div class="content">

@@ -1,0 +1,73 @@
+/* COLOR VARIABLES */
+:root {
+    /** CSS DARK PRIMARY COLORS */
+    --color-dark-primary-a0:  #ffffff;
+    --color-dark-primary-a10:  #c2c2c2;
+    --color-dark-primary-a20:  #898989;
+    --color-dark-primary-a30:  #545454;
+    --color-dark-primary-a50:  #242424;
+    --color-dark-primary-a60:  #d4ebfc;
+    --color-dark-primary-a70:  #efefef;
+    --color-dark-primary-a80:  #0d0d0d;
+    --color-dark-primary-a90:  #ffffff;
+
+    /** CSS DARK SECONDARY COLORS */
+    --color-dark-secondary-a0:  #ffffff;
+    --color-dark-secondary-a10:  #b9b9bd;
+    --color-dark-secondary-a20:  #77777f;
+    --color-dark-secondary-a30:  #3b3b46;
+    --color-dark-secondary-a50:  #010014;
+    --color-dark-secondary-a60:  #010010;
+    --color-dark-secondary-a70:  #00000b;
+    --color-dark-secondary-a80:  #000006;
+    --color-dark-secondary-a90:  #000000;
+
+    /** CSS LIGHT PRIMARY COLORS */
+    --color-light-primary-a0:  #000000;
+    --color-light-primary-a10:  #d4ebfc;
+    --color-light-primary-a20:  #a7d8f9;
+    --color-light-primary-a30:  #71c5f6;
+    --color-light-primary-a50:  #00b2f2;
+    --color-light-primary-a60:  #1d82af;
+    --color-light-primary-a70:  #1f5571;
+    --color-light-primary-a80:  #172c39;
+    --color-light-primary-a90:  #000000;
+
+    /** CSS LIGHT SECONDARY COLORS */
+    --color-light-secondary-a0:  #ffffff;
+    --color-light-secondary-a10:  #ffe4c6;
+    --color-light-secondary-a20:  #00b2f2;
+    --color-light-secondary-a30:  #00b2f2;
+    --color-light-secondary-a50:  #00b2f2;
+    --color-light-secondary-a60:  #b06e10;
+    --color-light-secondary-a70:  #734913;
+    --color-light-secondary-a80:  #a7d8f9;
+    --color-light-secondary-a90:  #000000;
+
+    /* OTHER COLORS */
+    --django-primary-color: #20AA76;
+    --django-secondary-color: #0C4B33;
+    --github-light-color:#2c3138;
+    --github-dark-color:#1a1f25;
+}
+
+.theme-toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-moon,
+.fa-sun{
+    font-size: 1.5rem;
+}
+
+.fa-moon{
+    color: var(--color-light-primary-a0);
+    position: absolute;
+    z-index: 100;
+}
+.fa-sun{
+    color: var(--color-light-secondary-a0);
+}
+
