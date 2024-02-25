@@ -1,16 +1,36 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Project, ProjectImage, User, Language, Framework, Library
+from .github_api import GitHubApi
 
-# Create your views here.
 
+# HOME SCREEN - LANDING PAGE
 class IndexView(TemplateView):
     template_name = "index.html"
 
     def get(self, request):
         return render(request, self.template_name)
 
+# PROFESSIONAL INFORMATION PAGE
+class ProfessionalInfo(TemplateView):
+    
+    template_name = "professional-info.html"
+    context = {}
 
+    api = GitHubApi()
+    github_user = api.getUser("zebalday")
+    github_last_commits = api.getLastCommits("zebalday", 5)
+
+    context = {
+        "github_user" : github_user,
+        "github_commits" : github_last_commits
+    }
+
+    def get(self, request):
+        return render(request, self.template_name, self.context)
+
+
+# PROJECTS RELATED
 class Portfolio(TemplateView):
     template_name = "portfolio.html"
     context = {}
@@ -49,7 +69,6 @@ class Portfolio(TemplateView):
 
     def get(self, request):
         return render(request, self.template_name, self.context)
-
 
 class ProjectViewer(TemplateView):
     template_name = "project-viewer.html"

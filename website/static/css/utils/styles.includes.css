@@ -38,3 +38,61 @@
         }
     }
 }
+
+/* LAST COMMITS */
+
+.last-commits-container{
+    border: 1px solid black;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    align-items: start;
+    justify-content: center;
+
+
+    .commit-item{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: var(--color-light-primary-a80);
+        color: var(--color-light-secondary-a0);
+        font-family: "Roboto-R";
+        border: 1px solid red;
+        border-radius: 5px;
+
+        .profile{
+            img{
+                max-width: 10%;
+            }
+        }
+        .repo{
+
+        }
+        .commit{
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

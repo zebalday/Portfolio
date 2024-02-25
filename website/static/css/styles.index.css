@@ -22,6 +22,7 @@
 
         img{
             width: inherit;
+            max-width: 70%;
             border-radius: 50%;
             animation: glow 10s ease-in-out infinite normal;
             border: 0.5px solid var(--color-dark-primary-a30);

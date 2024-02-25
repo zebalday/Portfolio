@@ -1,0 +1,27 @@
+
+
+<div class="github-user-container">
+    <img src="{{ github_user.avatar_url }}" alt="commiter avatar">
+    <p>{{ github_user.username }}</p>
+</div>
+
+
+<div class="last-commits-container">
+    {% for commit in github_commits %}
+        <div class="commit-item">
+            
+            <div class="profile">
+                <img src="{{ github_user.avatar_url }}" alt="commiter avatar">
+                <p>{{commit.username}}</p>
+            </div>
+            
+            <div class="content">
+                <p>{{commit.repo_name}}</p>
+                <p>{{commit.repo_url}}</p>
+                <p>{{commit.commit_message}}</p>
+                <p>{{commit.commit_url}}</p>
+                <p>{{commit.commit_date}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
