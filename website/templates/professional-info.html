@@ -10,7 +10,35 @@
 
 
 {% block page_content %}
-    {% include "includes/last-commits.html" %}
+    <div class="professional-info-container">
+        <div class="skills-section">
+            <div class="section-title">Skills</div>
+            <p>This is the collection of web oriented technologies that I consider my main stack.</p>
+            <div class="stack">
+                <div class="stack-item"><img src="{% static 'img/icons/html-logo.png' %}"></div>
+                <div class="stack-item"><img src="{% static 'img/icons/css-logo.png' %}"></div>
+                <div class="stack-item"><img src="{% static 'img/icons/javascript-logo.png' %}"></div>
+                <div class="stack-item"><img src="{% static 'img/icons/python-logo.png' %}"></div>
+                <div class="stack-item"><img src="{% static 'img/icons/django-logo.png' %}"></div>
+            </div>
+        </div>
+        <div class="studies-section">
+            <div class="section-title">Studies</div>
+            <p>Based on Chile, I've been studying <span class="highlighted-text">Computer Engineering</span> for the last 4 years. Here, I could discover my <span class="highlighted-text">passion for technology</span> and improve my coding habilities, beign able to reach one of the <span class="highlighted-text">best performances of my class</span>, which drove me to participate on an <span class="highlighted-text">international exchange experience in New Zealand</span>.</p>
+            <div class="study-institutions">
+                <div class="institution-item"></div>
+                <div class="institution-item"></div>
+            </div>
+        </div>
+        <div class="certifications-section">
+            <div class="section-title">Courses & Certifications</div>
+            <p></p>
+        </div>
+        <div class="commits-section">
+            <div class="section-title">What am I doing?</div>
+            {% include "includes/last-commits.html" %}
+        </div>
+    </div>
 {% endblock page_content %}
 
 

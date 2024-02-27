@@ -41,39 +41,78 @@
 
 /* LAST COMMITS */
 
-.last-commits-container{
-    border: 1px solid black;
-    width: 40%;
+.github-commits-container{
+    width: 95%;
+    padding: 0.5rem;
+    margin: 0 auto;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
-    align-items: start;
-    justify-content: center;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--color-dark-primary-a10);
+    font-family: "Roboto-R";
+
+    p{
+        line-height: 1.5rem;
+        margin: 0 auto;
+        padding: 0.2rem;
+    }
+    a{
+        text-decoration: none;
+    }
 
 
-    .commit-item{
+    .github-user{
+        border: 1px solid black;
         width: 100%;
-        height: auto;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        max-height: 10rem;
+        margin-bottom: 1rem;
         background-color: var(--color-light-primary-a80);
         color: var(--color-light-secondary-a0);
-        font-family: "Roboto-R";
-        border: 1px solid red;
-        border-radius: 5px;
 
-        .profile{
-            img{
-                max-width: 10%;
+        img{
+            width: 20%;
+            border-radius: 50%;
+            height: auto;
+            max-height: inherit;
+            padding: 0.2rem;
+            margin-left: 0.5rem;
+        }
+        p{
+            color: var(--color-dark-primary-a0) !important;
+        }
+    }
+
+
+    .last-commits{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        align-items: center;
+        justify-content: space-around;
+
+
+        .commit-item{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            color: var(--color-light-secondary-a0);
+            font-family: "Roboto-R";
+            border-radius: 5px 5px 5px 0px;
+            background-color: var(--color-light-primary-a80);
+            color: var(--color-light-secondary-a0);
+
+            p{
+                width: 95%;
+                color: var(--color-dark-primary-a0);
             }
-        }
-        .repo{
-
-        }
-        .commit{
-
         }
     }
 }

@@ -22,6 +22,7 @@ class GitHubApi():
         user_info = {
             "username":r["login"],
             "full_name":r["name"],
+            "github_url":r["html_url"],
             "location":r["location"],
             "bio":r["bio"],
             "avatar_url":r["avatar_url"],

@@ -1,27 +1,22 @@
 
+{% comment %} CONTAINER {% endcomment %}
+<div class="github-commits-container">
+    
+    {% comment %} PROFILE SECTION {% endcomment %}
+    <div class="github-user">
+        <img src="{{ github_user.avatar_url }}" alt="commiter avatar">
+        <p>Watch <a href="{{ github_user.github_url}}" class="highlighted-text">{{ github_user.username}}</a> last commits</p>
+    </div>
 
-<div class="github-user-container">
-    <img src="{{ github_user.avatar_url }}" alt="commiter avatar">
-    <p>{{ github_user.username }}</p>
-</div>
-
-
-<div class="last-commits-container">
-    {% for commit in github_commits %}
-        <div class="commit-item">
-            
-            <div class="profile">
-                <img src="{{ github_user.avatar_url }}" alt="commiter avatar">
-                <p>{{commit.username}}</p>
+    {% comment %} COMMIT LISTING {% endcomment %}
+    <div class="last-commits">
+        {% for commit in github_commits %}
+            <div class="commit-item">
+                    <p>{{commit.commit_date}}</p>
+                    <p><i class="fa-solid fa-code-commit"></i> Commited to <a href="{{commit.repo_url}}" class="highlighted-text">{{commit.repo_name}}</a></p>
+                    <p><i class="fa-solid fa-keyboard"></i> <em>{{commit.commit_message}}</em></p>
+                    <p><i class="fa-solid fa-magnifying-glass"></i><a href="{{commit.commit_url}}" class="highlighted-text"> Review commit.</a></p>
             </div>
-            
-            <div class="content">
-                <p>{{commit.repo_name}}</p>
-                <p>{{commit.repo_url}}</p>
-                <p>{{commit.commit_message}}</p>
-                <p>{{commit.commit_url}}</p>
-                <p>{{commit.commit_date}}</p>
-            </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
