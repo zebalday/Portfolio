@@ -68,6 +68,7 @@ html {
     background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a30) 50%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: bolder;
 }
 .section-title{
     color: var(--color-light-primary-a0);

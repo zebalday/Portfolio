@@ -14,16 +14,14 @@
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
-        min-height: 100px;
         border-bottom: 1px solid var(--color-light-primary-a0);
         padding-bottom: 1rem;
-        font-family: "Roboto-R";
         font-family: "Roboto-R";
 
         .section-title{
             margin-bottom: 1rem;
         }
-        p{
+        >p{
             color: var(--color-light-primary-a0);
             text-align: justify;
             font-family: "Roboto-R";
@@ -41,8 +39,9 @@
             justify-content: space-evenly;
             padding: 1rem;
             border-radius: 5px;
-            background-color: var(--color-dark-primary-a10);
-            box-shadow: 0px 0px 10px -2px var(--color-light-secondary-a50);
+            border: 2px solid transparent;
+            background: linear-gradient(30deg, var(--color-dark-primary-a10), var(--color-dark-primary-a10)) padding-box,
+                        linear-gradient(30deg, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
 
 
             .stack-item{
@@ -66,34 +65,39 @@
                 min-height: 50px;
                 background-color: var(--color-dark-primary-a10);
                 padding: 1rem;
-                padding: 1rem;
                 border-radius: 5px;
                 display: flex;
                 flex-direction: column;
                 row-gap: 0.5rem;
-                box-shadow: 0px 0px 10px -2px var(--color-light-secondary-a50);
+                border: 2px solid transparent;
+                background: linear-gradient(30deg, var(--color-dark-primary-a10), var(--color-dark-primary-a10)) padding-box,
+                            linear-gradient(30deg, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+
+                >div>p{
+                    color: var(--color-dark-secondary-a90);
+                    margin: 0 auto;
+                    line-height: 1.5rem;
+                    text-align: justify;
+                }
 
                 .title{
                     line-height: 1.5rem;
-                    text-align: left;
+                    text-align: center;
                     h2{
                         margin: 0 auto;
                     }
                 }
-                .date{
+                >.date{
                     font-style: italic;
                     color: var(--color-dark-secondary-a10);
-                    text-align: left;
+                    text-align: center;
                 }
-                .degree{
+                >.degree{
                     font-weight: bolder;
-                    text-align: left;
+                    text-align: center;
                 }
                 
-                >div>p{
-                    color: var(--color-dark-secondary-a90);
-                    margin: 0 auto;
-                }
+                
             }
         }
     }

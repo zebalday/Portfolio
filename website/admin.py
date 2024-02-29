@@ -1,7 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.models import User as UserBase
-from django.contrib.auth.admin import UserAdmin
-from .models import User, Project, ProjectImage, Technology, Language, Framework, Software, Library, CommentProject
+from .models import User, Project, ProjectImage, Technology, Language, Framework, Software, Library, CommentProject, Certification
 from .forms import ProjectImageForm
 
 
@@ -61,6 +59,11 @@ class AdminLibrary(admin.ModelAdmin):
     search_fields = ('name',)
     ordering = ('name',)
 
+class AdminCertification(admin.ModelAdmin):
+    readonly_fields = ('created_at','updated_at')
+    list_display = ('institution', 'course', 'year',)
+    search_fields = ('course', 'institution',)
+    ordering = ('-year',)
 
 # Register your models here.
 #admin.site.unregister(UserBase)
@@ -72,4 +75,5 @@ admin.site.register(Language, AdminLanguage)
 admin.site.register(Framework, AdminFramework)
 admin.site.register(Software, AdminSoftware)
 admin.site.register(Library, AdminLibrary)
+admin.site.register(Certification, AdminCertification)
 

@@ -1,31 +1,37 @@
 <div class="tags" id="tags">
     {% comment %} PROJECT LANGUAGES ITERATION {% endcomment %}
+    {% if object.languages %}
     <div class="languages">
         <i class="fa-solid fa-code"></i>
         <p>
-            {% for language in project.languages %}
+            {% for language in object.languages %}
             {{ language }}{% if not forloop.last %}, {% endif %}
             {% endfor %}
         </p>
     </div>
+    {% endif %}
         
     {% comment %} PROJECT FRAMEWORK ITERATION {% endcomment %}
-    {% if project.framework %}
+    {% if object.frameworks %}
     <div class="framework">
         <i class="fa-solid fa-gears"></i>
-        {% for framework in project.framework %}
-        <p><span class="tag">{{ framework }}</span></p>
-        {% endfor %}
+        <p>
+            {% for framework in object.frameworks %}
+            {{ framework }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
     </div>
     {% endif %}
         
     {% comment %} PROJECT LIBRARIES ITERATION {% endcomment %}
-    {% if project.libraries %}
+    {% if object.libraries %}
     <div class="libraries">
         <i class="fa-solid fa-puzzle-piece"></i>
-        {% for library in project.libraries %}
-            <p><span class="tag">{{ library }}</span></p>
-        {% endfor %}
+        <p>
+            {% for library in object.libraries %}
+            {{ library }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
     </div>
     {% endif %}
 </div>

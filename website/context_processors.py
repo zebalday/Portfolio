@@ -1,4 +1,4 @@
-from .models import Project
+from .models import Project, Certification
 
 def get_public_projects(request):
 
@@ -25,7 +25,7 @@ def get_public_projects(request):
         full_project = {
             "project":project,
             "languages":related_languages,
-            "framework":related_frameworks,
+            "frameworks":related_frameworks,
             "libraries":related_libraries,
             "filter":filter_identifier,
         }
@@ -37,3 +37,24 @@ def get_public_projects(request):
     # return context
     return ({"projects_full":projects_full})
 
+def get_public_certifications(request):
+    
+    certificates_full = []
+    
+    certificates = Certification.objects.filter(is_public=True)
+
+    for certification in certificates:
+        related_languages = certification.languages.all()
+        related_frameworks = certification.frameworks.all()
+        related_libraries = certification.libraries.all()
+
+        certificate = {
+            "certificate": certification,
+            "languages": related_languages,
+            "frameworks": related_frameworks,
+            "libraries": related_libraries,
+        }
+
+        certificates_full.append(certificate)
+    
+    return ({"certificates_full": certificates_full})

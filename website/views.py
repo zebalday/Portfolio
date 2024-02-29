@@ -17,7 +17,7 @@ class ProfessionalInfo(TemplateView):
     template_name = "professional-info.html"
     context = {}
 
-    api = GitHubApi(token="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")
+    api = GitHubApi(token="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")
     print(api)
     print(api.get_zen_info())
 

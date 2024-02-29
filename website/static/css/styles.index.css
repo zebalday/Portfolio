@@ -66,7 +66,8 @@
             text-align: center;
             border-radius: 0.5rem;
             border: 1px solid transparent;
-            background: linear-gradient(var(--color-dark-primary-a90), var(--color-dark-primary-a90)) padding-box, linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-secondary-a50)) border-box;
+            background: linear-gradient(var(--color-dark-primary-a90), var(--color-dark-primary-a90)) padding-box,
+                        linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-secondary-a50)) border-box;
             transition: border-color 1s;
         }
 

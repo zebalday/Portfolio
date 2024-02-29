@@ -543,3 +543,81 @@ class CommentProject(models.Model):
         ordering = ["-created_at"]
 
 
+"""
+======================
+    CERTIFICATION
+======================
+- Institution
+- Course
+- Year
+- Link
+- Language
+- Framework
+
+"""
+class Certification(models.Model):
+    
+    institution = models.CharField(
+        verbose_name = "Institution",
+        max_length = 100,
+        blank = False,
+        editable = True
+    )
+    course = models.CharField(
+        verbose_name = "Course name",
+        max_length = 150,
+        blank = False,
+        editable = True
+    )
+    year = models.PositiveIntegerField(
+        verbose_name = "Year issued",
+        blank = False,
+        editable = True
+    )
+    link = models.URLField(
+        verbose_name = "Certificate / Course link",
+        max_length = 250,
+        blank = False,
+        editable = True
+    )
+
+    # FK's
+    languages = models.ManyToManyField(
+        Language,
+        verbose_name="Used Languages",
+        blank = True,
+    )
+    frameworks = models.ManyToManyField(
+        Framework,
+        verbose_name="Used Frameworks",
+        blank = True,
+    )
+    libraries = models.ManyToManyField(
+        Library,
+        verbose_name="Used libraries",
+        blank = True,
+    )
+    
+    # Public / Visible
+    is_public = models.BooleanField(
+        verbose_name = "Show this certificate?",
+        default = False,
+    )
+
+    # Datetime
+    created_at = models.DateTimeField(
+        auto_now_add = True,
+        verbose_name = "Created on"
+    )
+    updated_at = models.DateTimeField(
+        auto_now = True,
+        verbose_name = "Updated on"
+    )
+
+    def __str__(self) -> str:
+        return (f"{self.course} - {self.institution} - [{self.year}]")
+
+    class Meta:
+        verbose_name = "Certification"
+        verbose_name_plural = "Certifications"
+        ordering = ["-year"]
