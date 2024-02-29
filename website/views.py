@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Project, ProjectImage, User, Language, Framework, Library
-from .github_api import GitHubApi
+from .pyhub import GitHubAPI
 
 
 # HOME SCREEN - LANDING PAGE
@@ -17,7 +17,7 @@ class ProfessionalInfo(TemplateView):
     template_name = "professional-info.html"
     context = {}
 
-    api = GitHubApi()
+    api = GitHubAPI.GitHubApi
     github_user = api.getUser("zebalday")
     github_last_commits = api.getLastCommits("zebalday", 5)
 

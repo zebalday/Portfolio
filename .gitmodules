@@ -1,0 +1,3 @@
+[submodule "website/pyhub"]
+	path = website/pyhub
+	url = https://github.com/zebalday/pyhub
