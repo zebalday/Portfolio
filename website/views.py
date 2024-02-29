@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Project, ProjectImage, User, Language, Framework, Library
-from .pyhub import GitHubAPI
+from .pyhub.GitHubAPI import GitHubApi
 
 
 # HOME SCREEN - LANDING PAGE
@@ -17,7 +17,10 @@ class ProfessionalInfo(TemplateView):
     template_name = "professional-info.html"
     context = {}
 
-    api = GitHubAPI.GitHubApi
+    api = GitHubApi(token="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")
+    print(api)
+    print(api.get_zen_info())
+
     github_user = api.getUser("zebalday")
     github_last_commits = api.getLastCommits("zebalday", 5)
 
@@ -33,42 +36,11 @@ class ProfessionalInfo(TemplateView):
 # PROJECTS RELATED
 class Portfolio(TemplateView):
     template_name = "portfolio.html"
-    context = {}
-    projects_full_info_list = []
 
-    projects = Project.objects.filter(is_public=True)
-
-    # Relate project with its languages and framewworks
-    for project in projects:
-        related_languages = project.languages.all()
-        related_frameworks = project.framework.all()
-        related_libraries = project.libraries.all()
-
-        if related_libraries.filter(name__in=("Pandas","Numpy","Seaborn","MatPlotLib")).exists():
-            filter_identifier = "filter-datascience filter-python"
-        elif related_frameworks.filter(name="Django").exists():
-            filter_identifier = "filter-django filter-python"
-        elif related_languages.filter(name="Python").exists():
-            filter_identifier = "filter-python"
-        else:
-            filter_identifier = None
-
-        # Create dictionary with project and its tags
-        full_project = {"project":project,
-                        "languages":related_languages,
-                        "framework":related_frameworks,
-                        "libraries":related_libraries,
-                        "filter":filter_identifier,
-                        }
-        
-        # Add dictionary to the list of projects
-        projects_full_info_list.append(full_project)
-
-    # Create page context
-    context["projects_full"] = projects_full_info_list
+    # >> Send public projects through context processor (get_public_projects)
 
     def get(self, request):
-        return render(request, self.template_name, self.context)
+        return render(request, self.template_name)
 
 class ProjectViewer(TemplateView):
     template_name = "project-viewer.html"

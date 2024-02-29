@@ -18,6 +18,7 @@
         border-bottom: 1px solid var(--color-light-primary-a0);
         padding-bottom: 1rem;
         font-family: "Roboto-R";
+        font-family: "Roboto-R";
 
         .section-title{
             margin-bottom: 1rem;
@@ -32,19 +33,22 @@
 
     .skills-section{
         .stack{
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(3rem, 6rem));
+            row-gap: 1rem;
+            column-gap: 1rem;
             align-items: center;
             justify-content: space-evenly;
-            padding: 1rem 0;
+            padding: 1rem;
             border-radius: 5px;
             background-color: var(--color-dark-primary-a10);
+            box-shadow: 0px 0px 10px -2px var(--color-light-secondary-a50);
+
 
             .stack-item{
-                width: 20%;
                 
                 img{
-                    max-width: 3rem;
+                    max-width: 85%;
                     display: block;
                     margin: 0 auto;
                 }
@@ -62,13 +66,16 @@
                 min-height: 50px;
                 background-color: var(--color-dark-primary-a10);
                 padding: 1rem;
+                padding: 1rem;
                 border-radius: 5px;
                 display: flex;
                 flex-direction: column;
                 row-gap: 0.5rem;
+                box-shadow: 0px 0px 10px -2px var(--color-light-secondary-a50);
 
                 .title{
                     line-height: 1.5rem;
+                    text-align: left;
                     h2{
                         margin: 0 auto;
                     }
@@ -76,10 +83,13 @@
                 .date{
                     font-style: italic;
                     color: var(--color-dark-secondary-a10);
+                    text-align: left;
                 }
                 .degree{
-                    font-weight: bold;
+                    font-weight: bolder;
+                    text-align: left;
                 }
+                
                 >div>p{
                     color: var(--color-dark-secondary-a90);
                     margin: 0 auto;
