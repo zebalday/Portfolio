@@ -1,12 +1,10 @@
 <div class="certificates-container">
     {% for certificate in certificates_full %}
     <div class="certificate-item">
-        <div class="description">
-            <h2>{{certificate.certificate.institution}}</h2>
-            <h3><a href="{{certificate.certificate.link}}">{{certificate.certificate.course}}</a></h3>
-            {% include "includes/project-tags.html" with object=certificate %}
-            <p><em>Issued on: {{certificate.certificate.year}}</em></p>
-        </div>
+        <h2>{{certificate.certificate.institution}}</h2>
+        <h3><a href="{{certificate.certificate.link}}">{{certificate.certificate.course}}</a></h3>
+        {% include "includes/project-tags.html" with object=certificate %}
+        <p><em>Issued on: {{certificate.certificate.year}}</em></p>
     </div>
     {% endfor %}
 </div>

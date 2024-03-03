@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Project, ProjectImage, User, Language, Framework, Library
 from .pyhub.GitHubAPI import GitHubApi
+from .env_variables import *
 
 
 # HOME SCREEN - LANDING PAGE
@@ -17,7 +18,7 @@ class ProfessionalInfo(TemplateView):
     template_name = "professional-info.html"
     context = {}
 
-    api = GitHubApi(token="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")
+    api = GitHubApi(token=GITHUB_TOKEN)
     print(api)
     print(api.get_zen_info())
 

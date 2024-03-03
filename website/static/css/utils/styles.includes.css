@@ -1,7 +1,8 @@
 /* MEDIA LINKS COMPONENT */
-.media-container{
+.media-container {
     font-size: 2rem;
-    ul{
+
+    ul {
         padding-inline-start: 0;
         list-style: none;
         display: flex;
@@ -9,31 +10,35 @@
         justify-content: center;
         align-items: center;
     }
-    li{
+
+    li {
         padding: 1rem;
     }
-    .svg-inline--fa{
+
+    .svg-inline--fa {
         color: var(--color-light-secondary-a20);
     }
 }
 
 
 /* PROJECT TAGS (LANGAUGES, FRAMEWORK, LIBRARIES) */
-.tags{
+.tags {
     width: auto;
     .languages,
     .framework,
-    .libraries{
+    .libraries {
         width: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
         margin: 0.5rem 0;
         line-height: 1.5rem;
-        .svg-inline--fa{
+
+        .svg-inline--fa {
             margin: 0 0.5rem;
         }
-        >p{
+
+        >p {
             margin: 0px 0rem 0px 0.5rem;
         }
     }
@@ -41,7 +46,7 @@
 
 /* LAST COMMITS */
 
-.github-commits-container{
+.github-commits-container {
     width: 95%;
     padding: 1rem;
     margin: 0 auto;
@@ -50,20 +55,23 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: var(--color-dark-primary-a10);
+    /* background-color: var(--color-dark-primary-a10); */
     font-family: "Roboto-R";
+    border: 2px solid transparent;
+    background: linear-gradient(30deg, var(--color-dark-primary-a10), var(--color-dark-primary-a10)) padding-box,
+                linear-gradient(30deg, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
 
-    p{
+    p {
         line-height: 1.5rem;
         margin: 0 auto;
         padding: 0.2rem;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
 
-
-    .github-user{
+    .github-user {
         border: 1px solid black;
         width: 100%;
         display: flex;
@@ -73,7 +81,7 @@
         background-color: var(--color-light-primary-a80);
         color: var(--color-light-secondary-a0);
 
-        img{
+        img {
             width: 20%;
             border-radius: 50%;
             height: auto;
@@ -81,22 +89,24 @@
             padding: 0.2rem;
             margin-left: 0.5rem;
         }
-        p{
+
+        p {
             color: var(--color-dark-primary-a0);
         }
     }
 
 
-    .last-commits{
+    .last-commits {
         width: 100%;
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
         align-items: center;
         justify-content: space-around;
+        
 
 
-        .commit-item{
+        .commit-item {
             width: 100%;
             height: auto;
             display: flex;
@@ -111,13 +121,13 @@
             transition: all 0.3s;
 
 
-            p{
+            p {
                 width: 95%;
                 color: var(--color-dark-primary-a0);
             }
         }
 
-        .commit-item:hover{
+        .commit-item:hover {
             transform: scale(102%);
             border-color: var(--color-light-secondary-a30);
             box-shadow: 0px 0px 15px 2px var(--color-light-secondary-a50);
@@ -127,66 +137,71 @@
 
 /* CERTIFICATES LIST */
 
-.certificates-container{
+.certificates-container {
     width: 95%;
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     justify-content: center;
     font-family: "Roboto-R";
-    
-    .certificate-item{
+
+    .certificate-item {
         width: 100%;
-        background-color: var(--color-dark-primary-a10);
-        border-radius: 5px;
+        color: var(--color-light-primary-a0);
         padding: 1rem;
-        border: 2px solid transparent;
-        background: linear-gradient(30deg, var(--color-dark-primary-a10), var(--color-dark-primary-a10)) padding-box,
-                    linear-gradient(30deg, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+        border-bottom: 1px solid var(--color-dark-primary-a10);
+        box-shadow: var(--color-dark-primary-a10) 0px 15px 10px -15px;
+        transition: all 0.5s;
+        
 
-        .description{
-            color: var(--color-dark-secondary-a90);
+        h2 {
+            margin: 0.5rem 0;
+            text-align: left;
+            line-height: 1.5rem;
+        }
 
-            h2{
-                margin: 0.5rem 0;
-                text-align: left;
-            }
-            h3{
-                margin: 0.5rem 0;
-                text-align: left;
-                line-height: 1.5rem;
-                padding-inline-start: 0.5rem;
-            }
-            p{
-                margin: unset;
-                text-align: left;
-                line-height: 1.5rem;
-                padding-inline-start: 0.5rem;
-            }
+        h3 {
+            margin: 0.5rem 0;
+            text-align: left;
+            line-height: 1.5rem;
+            padding-inline-start: 0.5rem;
+
             a{
                 text-decoration: none;
-                color: black;
+                color: var(--color-light-primary-a0);
             }
-            a:hover{
+
+            a:hover {
                 text-decoration: underline;
             }
         }
+
+        .tags{
+            display: none;
+        }
+        p {
+            display: none;
+            margin: unset;
+            text-align: left;
+            line-height: 1.5rem;
+            padding-inline-start: 0.5rem;
+        }
+    }
+
+    .certificate-item:hover{
+        padding: 0.5rem 1rem;
+        border-left: 3px solid var(--color-light-secondary-a50);
+        border-bottom: none;
+        box-shadow: var(--color-light-secondary-a50) -15px 0px 10px -15px;
+        h2{
+            background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a30) 50%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bolder;
+        }
+        .tags,
+        p{
+            display: block;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

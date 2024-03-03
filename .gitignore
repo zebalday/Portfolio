@@ -2,3 +2,5 @@ venv/
 media/
 db.sqlite3
 website/static/img
+website/.env
+website/env_variables.py

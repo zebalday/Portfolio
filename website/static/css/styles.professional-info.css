@@ -2,7 +2,7 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2rem;
     justify-content: start;
     align-items: center;
     
@@ -14,7 +14,7 @@
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid var(--color-light-primary-a0);
+        /* border-bottom: 1px solid var(--color-light-primary-a0); */
         padding-bottom: 1rem;
         font-family: "Roboto-R";
 
@@ -63,41 +63,74 @@
 
             .institution-item{
                 min-height: 50px;
-                background-color: var(--color-dark-primary-a10);
+                color: var(--color-light-primary-a0);
+                /* background-color: var(--color-dark-primary-a10); */
                 padding: 1rem;
-                border-radius: 5px;
                 display: flex;
                 flex-direction: column;
                 row-gap: 0.5rem;
-                border: 2px solid transparent;
-                background: linear-gradient(30deg, var(--color-dark-primary-a10), var(--color-dark-primary-a10)) padding-box,
-                            linear-gradient(30deg, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+                border-bottom: 1px solid var(--color-dark-primary-a10);
+                box-shadow: var(--color-dark-primary-a10) 0px 15px 10px -15px;
+                transition: all 0.5s;
+                
 
-                >div>p{
-                    color: var(--color-dark-secondary-a90);
-                    margin: 0 auto;
+                            
+                >.title{
                     line-height: 1.5rem;
-                    text-align: justify;
-                }
-
-                .title{
-                    line-height: 1.5rem;
-                    text-align: center;
+                    text-align: left;
+                    margin-bottom: 0.5rem;
                     h2{
                         margin: 0 auto;
                     }
                 }
-                >.date{
-                    font-style: italic;
-                    color: var(--color-dark-secondary-a10);
-                    text-align: center;
-                }
                 >.degree{
                     font-weight: bolder;
-                    text-align: center;
+                    text-align: left;
+                    line-height: 1.5rem;
+                    p{
+                        margin: 0 auto;
+                    }
                 }
-                
-                
+                >.description{
+                    display: none;
+                    color: var(--color-dark-secondary-a90);
+                    line-height: 1.5rem;
+                    margin: 0 auto;
+                    padding-inline-start: 1rem;
+                    p{
+                        color: var(--color-light-primary-a0);
+                        margin: 0 auto;
+                        text-align: justify;
+                    }
+                }
+                >.date{
+                    display: none;
+                    font-style: italic;
+                    text-align: left;
+                    padding-inline-start: 1rem;
+                    p{
+                        margin: 0 auto;
+                    }
+                }
+            }
+            .institution-item:hover{
+                padding: 0.5rem 1rem;
+                border-left: 3px solid var(--color-light-secondary-a50);
+                border-bottom: none;
+                box-shadow: var(--color-light-secondary-a50) -15px 0px 10px -15px;
+                .title{
+                    h2{
+                        background: linear-gradient(to right, var(--color-light-secondary-a50) 0%, var(--color-light-secondary-a30) 50%);
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-weight: bolder;
+                    }
+                }
+                .description,
+                .date{
+                    display: block;
+                }
+
             }
         }
     }
