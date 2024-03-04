@@ -7,44 +7,45 @@ from .env_variables import *
 
 # HOME SCREEN - LANDING PAGE
 class IndexView(TemplateView):
-    template_name = "index.html"
+    template_name = "website/index.html"
 
     def get(self, request):
         return render(request, self.template_name)
 
-# PROFESSIONAL INFORMATION PAGE
+# ABOUT ME - PROFESSIONAL INFORMATION PAGE
 class ProfessionalInfo(TemplateView):
     
-    template_name = "professional-info.html"
+    template_name = "website/professional-info.html"
     context = {}
 
     api = GitHubApi(token=GITHUB_TOKEN)
-    print(api)
-    print(api.get_zen_info())
+    #print(api.get_zen_info())
 
     github_user = api.getUser("zebalday")
-    github_last_commits = api.getLastCommits("zebalday", 5)
+    github_commits = api.getLastCommits("zebalday", 5)
 
-    context = {
-        "github_user" : github_user,
-        "github_commits" : github_last_commits
-    }
+    if github_user.status_code == 200 and github_commits.status_code == 200:
+        context = {
+            "github_user" : github_user.data,
+            "github_commits" : github_commits.data
+        }
 
     def get(self, request):
         return render(request, self.template_name, self.context)
 
 
-# PROJECTS RELATED
+# PORTFOLIO - PROJECTS LISTING
 class Portfolio(TemplateView):
-    template_name = "portfolio.html"
+    template_name = "website/portfolio.html"
 
     # >> Send public projects through context processor (get_public_projects)
 
     def get(self, request):
         return render(request, self.template_name)
 
+# SINGLE PROJECT PAGE
 class ProjectViewer(TemplateView):
-    template_name = "project-viewer.html"
+    template_name = "website/project-viewer.html"
     context = {}
     
     def get(self, request, id):

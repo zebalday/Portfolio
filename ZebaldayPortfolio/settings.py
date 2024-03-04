@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'whitenoise',
     'ckeditor',
     'website',
+    'pyhub_app',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

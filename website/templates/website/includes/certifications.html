@@ -3,7 +3,7 @@
     <div class="certificate-item">
         <h2>{{certificate.certificate.institution}}</h2>
         <h3><a href="{{certificate.certificate.link}}">{{certificate.certificate.course}}</a></h3>
-        {% include "includes/project-tags.html" with object=certificate %}
+        {% include "website/includes/project-tags.html" with object=certificate %}
         <p><em>Issued on: {{certificate.certificate.year}}</em></p>
     </div>
     {% endfor %}

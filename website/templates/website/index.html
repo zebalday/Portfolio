@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "website/layout.html" %}
 {% load static %}
 
 <!--TITLE-->
@@ -22,13 +22,13 @@
             <h2>Software & Web Developer</h2>
         </div>
         <div class="profile-description">
-            <p>Hi! I'm <span class="highlighted-text">Sebastian</span>, a software developer based on <span class="highlighted-text">Chile</span>, and this is my space. Here you'll be able to see all my <span class="highlighted-text">projects</span>, blog posts, review my code, and know me a little better.</p>
+            <p>Hi! I'm <span class="highlighted-text">Sebastian</span>, a software developer based on <span class="highlighted-text">Chile</span>, and this is my space. Here you'll be able to see all my <span class="highlighted-text">projects, review my code</span>, and know me a little better.</p>
             <p><span class="highlighted-text">Right now</span> I'm focused on building scalable, <span class="highlighted-text">well designed</span>, and innovative web applications with <span class="highlighted-text">Python</span> and <span class="highlighted-text">Django Framework.</span></p>
             <p>Feel free to visit <span class="highlighted-text">these links!</span></p>
         </div>
         <div class="page-sections">
-            <button onClick="location.href='{% url 'portfolio' %}'"><i class="fa-solid fa-briefcase"></i>Projects</button>
-            <button onClick="location.href='{% url 'professional' %}'"><i class="fa-solid fa-user-tie"></i>Professional Info</button>
+            <button onClick="location.href='{% url 'website:portfolio' %}'"><i class="fa-solid fa-briefcase"></i>Projects</button>
+            <button onClick="location.href='{% url 'website:professional' %}'"><i class="fa-solid fa-user-tie"></i>Professional Info</button>
             <button onClick=""><i class="fa-brands fa-blogger-b"></i>Blog Posts</button>
             <button onClick=""><i class="fa-solid fa-arrow-right-to-bracket"></i>Log In</button>
         </div>

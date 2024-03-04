@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "website/layout.html" %}
 {% load static %}
 
 {% block page_title %}Professional Info{% endblock page_title %}
@@ -71,12 +71,12 @@
 
         <div class="certifications-section">
             <div class="section-title">Courses & Certifications</div>
-            {% include "includes/certifications.html" %}
+            {% include "website/includes/certifications.html" %}
         </div>
 
         <div class="commits-section">
             <div class="section-title">What am I doing?</div>
-            {% include "includes/last-commits.html" %}
+            {% include "website/includes/last-commits.html" %}
         </div>
     </div>
 {% endblock page_content %}

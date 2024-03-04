@@ -48,7 +48,7 @@
         <!-- TITLE & NAVITAGION HEADER -->
         <header>
             <div class="header-items-container">
-                <div class="header-title" onClick="location.href='{% url 'home' %}'">
+                <div class="header-title" onClick="location.href='{% url 'website:home' %}'">
                     <h1>zebalday</h1>
                 </div>
                 <div class="theme-toggle" id="theme-toggle">
@@ -67,7 +67,7 @@
 
         <!-- PAGE FOOTER-->
         <footer>
-            {% include "includes/media.html" %}
+            {% include "website/includes/media.html" %}
             <div class="footer-content">
                 <div class="footer-info">
                     <p>&copy; 2024 zebalday.dev by Sebastián Alday</p>
