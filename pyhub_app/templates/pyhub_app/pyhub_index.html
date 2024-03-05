@@ -4,10 +4,54 @@
 {% block page_title %}Pyhub APP{% endblock page_title %}
 
 
-{% block page_styles %}{% endblock page_styles %}
+{% block page_styles %}
+
+{% endblock page_styles %}
 
 
-{% block page_content %}{% endblock page_content %}
+{% block page_content %}
+    <div class="content-container">
+        
+        {% comment %} POST PETITION {% endcomment %}
+        {% if petition_error %}
+            <div>Error</div>
+            <div>Error message</div>
+        {% endif %}
+        
+        {% if github_user %}
+            <div>
+                <div>Info</div>
+                <div>{{github_user}}</div>
+                <div>{{github_commits}}</div>
+                <div>{{github_followers}}</div>
+                <div>{{github_following}}</div>
+            </div>
+        {% endif %}
+        
+        
+        {% comment %} GET PETITION {% endcomment %}
+        {% if users_list %}
+            <div>
+                <h2>Users</h2>
+            </div>
+            <div>
+                <ul>
+                    {% for user in users_list %}
+                        <li>{{user.username}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+            </div>
+            {% endif %}
+            <form id="user-form" action="" method="POST">
+                {% csrf_token %}
+                {{ user_form.as_p|safe}}
+            </form>
+    </div>
+{% endblock page_content %}
 
 
-{% block page_scripts %}{% endblock page_scripts %}
+{% block page_scripts %}
+
+{% endblock page_scripts %}

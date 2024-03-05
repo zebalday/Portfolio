@@ -6,16 +6,15 @@ class GithubUser(models.Model):
         max_length = 150,
         blank = False,
         null = False,
-        editable = False
     )
-    github_url = models.URLField(
+    url = models.URLField(
         verbose_name = "Github Profile",
         max_length = 250,
         blank = False,
         null = False,
         editable = False
     )
-    github_thumbnail = models.URLField(
+    thumbnail = models.URLField(
         verbose_name = "Github Thumbnail",
         max_length = 250,
         blank = False,

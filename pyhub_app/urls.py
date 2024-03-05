@@ -4,5 +4,5 @@ from .views import *
 app_name = "pyhub_app"
 
 urlpatterns = [
-    path("pyhub/app", pyhub_app.as_view(), name="pyhub_app")
+    path("pyhub/app", pyhub_app.as_view(), name="pyhub-app")
 ]

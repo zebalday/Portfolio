@@ -1,0 +1,28 @@
+{% extends "website/layout.html" %}
+{% load static %}
+
+{% block page_title %}Github Activity{% endblock page_title %}
+
+{% block page_styles %}
+    <link rel="stylesheet" tpye ="text/css" href="{% static '/css/styles.github-activity.css' %}">
+{% endblock page_styles %}
+
+
+{% block page_content %}
+    <div class="commits-container">
+        <div class="commits-section">
+            <div class="section-title">What am I doing?</div>
+            <p>This piece of art is part of the <a href="/pyhub/app" class="highlighted-text">PYHUB Project</a> that I developed. It started several weeks ago with the discovery of the the <a href="https://api.github.com/" class="highlighted-text">API that Github has</a> available for public use.</p>
+            <p>Along the developing of this project I have been dealing with different <span class="highlighted-text">coding challenges</span> such as <span class="highlighted-text">OPP Structure</span>, <span class="highlighted-text">Asynchronous programming</span>, <span class="highlighted-text">Authenticated requests</span>, <span class="highlighted-text">HTTP Responses</span>, among other important topics.</p>
+            
+            {% include "website/includes/last-commits.html" %}
+
+            <div class="button-section">
+                <button onClick="location.href='{% url 'pyhub_app:pyhub-app' %}'">Try it yourself</button>
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}
+
+
+{% block page_scripts %}{% endblock page_scripts %}

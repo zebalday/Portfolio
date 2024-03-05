@@ -41,12 +41,10 @@
             border: 1px solid transparent;
             border-radius: 5px;
             transition: all 0.5s;
-
-
         }
 
         .link-btn{
-            background-color: var(--color-light-primary-a30);
+            background-color: var(--color-light-secondary-a30);
             border: 2px solid var(--color-dark-secondary-a30);
                         
             a{

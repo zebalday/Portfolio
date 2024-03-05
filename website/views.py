@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Project, ProjectImage, User, Language, Framework, Library
+from .models import Project, ProjectImage
 from .pyhub.GitHubAPI import GitHubApi
 from .env_variables import *
+from rest_framework import status
 
 
 # HOME SCREEN - LANDING PAGE
@@ -10,7 +11,12 @@ class IndexView(TemplateView):
     template_name = "website/index.html"
 
     def get(self, request):
+        
+        if not request.session.exists(request.session.session_key):
+            request.session.create()
+
         return render(request, self.template_name)
+
 
 # ABOUT ME - PROFESSIONAL INFORMATION PAGE
 class ProfessionalInfo(TemplateView):
@@ -18,19 +24,55 @@ class ProfessionalInfo(TemplateView):
     template_name = "website/professional-info.html"
     context = {}
 
-    api = GitHubApi(token=GITHUB_TOKEN)
-    #print(api.get_zen_info())
+    def get(self, request):
 
-    github_user = api.getUser("zebalday")
-    github_commits = api.getLastCommits("zebalday", 5)
+        """ api = GitHubApi(token=GITHUB_TOKEN)
+        github_user = api.getUser("zebalday")
+        github_commits = api.getLastCommits("zebalday", 5)
 
-    if github_user.status_code == 200 and github_commits.status_code == 200:
-        context = {
-            "github_user" : github_user.data,
-            "github_commits" : github_commits.data
-        }
+
+        if github_user['status'] == status.HTTP_200_OK and github_commits['status'] == status.HTTP_200_OK:
+            self.context = {
+                "github_user" : github_user['user'],
+                "github_commits" : github_commits['commits']
+        } """
+
+        return render(request, self.template_name, self.context)
+
+
+# GITHUB ACTIVITY
+class GithubActivity(TemplateView):
+    template_name = "website/github-activity.html"
+    context = {}
 
     def get(self, request):
+
+        if (('github_user' not in request.session) or ('github_commits' not in request.session)):
+            
+            api = GitHubApi(token=GITHUB_TOKEN)
+            github_user = api.getUser("zebalday")
+            github_commits = api.getLastCommits("zebalday", 5)
+
+            if github_user['status'] == status.HTTP_200_OK and github_commits['status'] == status.HTTP_200_OK:
+                self.context = {
+                    "github_user" : github_user['user'],
+                    "github_commits" : github_commits['commits']
+                }
+
+                request.session["github_user"] = github_user['user']
+                request.session["github_commits"] = github_commits['commits']
+
+                return render(request, self.template_name, self.context)
+            
+            self.context['error': status.HTTP_400_BAD_REQUEST]
+            
+            return render(request, self.template_name, self.context)
+        
+        self.context = {
+                "github_user" : request.session["github_user"],
+                "github_commits" : request.session["github_commits"]
+        }
+
         return render(request, self.template_name, self.context)
 
 
@@ -42,6 +84,7 @@ class Portfolio(TemplateView):
 
     def get(self, request):
         return render(request, self.template_name)
+
 
 # SINGLE PROJECT PAGE
 class ProjectViewer(TemplateView):

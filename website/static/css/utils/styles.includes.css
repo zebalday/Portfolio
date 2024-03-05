@@ -91,7 +91,7 @@
         }
 
         p {
-            color: var(--color-dark-primary-a0);
+            color: var(--color-dark-primary-a0) !important;
         }
     }
 

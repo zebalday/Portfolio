@@ -1,5 +1,6 @@
 from .models import Project, Certification
 
+
 def get_public_projects(request):
 
     projects_full = []
@@ -58,3 +59,5 @@ def get_public_certifications(request):
         certificates_full.append(certificate)
     
     return ({"certificates_full": certificates_full})
+
+    
