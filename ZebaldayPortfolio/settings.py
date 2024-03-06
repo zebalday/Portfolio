@@ -114,13 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'America/Santiago'
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
+DATE_FORMAT = "%B %d, %Y"
+TIME_FORMAT = "%H:%M"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -148,3 +148,6 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+# SESSION CONFIGS
+SESSION_TIMEOUT = 3600

@@ -70,6 +70,7 @@ html {
     -webkit-text-fill-color: transparent;
     font-weight: bolder;
 }
+
 .section-title{
     color: var(--color-light-primary-a0);
     font-family: "LemonMilk-R";

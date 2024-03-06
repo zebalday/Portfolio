@@ -25,6 +25,12 @@ class GithubUser(models.Model):
         auto_now_add = True,
         verbose_name = "Created on"
     )
+    last_consulted = models.DateTimeField(
+        verbose_name = "Last checked on",
+        auto_now = True,
+        blank = False,
+        null = False
+    )
     
     def __str__(self) -> str:
         return super().__str__()

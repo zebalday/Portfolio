@@ -1,0 +1,54 @@
+{% extends "website/layout.html" %}
+{% load static %}
+{% load l10n %}
+
+{% block page_title %}Pyhub APP{% endblock page_title %}
+
+
+{% block page_styles %}
+    <link href="{% static '/css/styles.pyhub-index.css' %}" rel="stylesheet" type="text/css">
+{% endblock page_styles %}
+
+
+{% block page_content %}
+    <div class="app-container">
+        
+        {% comment %} POST PETITION {% endcomment %}
+        {% if petition_error %}
+            <div class="error-msg-container">
+                <div>Error</div>
+                <div>Error message</div>
+            </div>
+        {% endif %}
+        
+        {% if github_user %}
+            <div class="github-info-container">
+                <div>Info</div>
+                {% include "website/includes/last-commits.html" with github_user=github_user github_commits=github_commits %}
+                <div>{{github_followers}}</div>
+                <div>{{github_following}}</div>
+            </div>
+        {% endif %}
+        
+        
+        {% comment %} GET PETITION {% endcomment %}
+        {% if users_list %}
+        <div class="form-container">
+            <form id="user-form" class="user-form" action='{% url "pyhub_app:index" %}' method="POST">
+                {% csrf_token %}
+                {{ user_form|safe}}
+                <button class="form-input btn-submit" type="submit">Get stats!</button>
+            </form>
+            
+            <p>Meet other <span class="highlighted-text">users</span>... they <span class="highlighted-text">tried this already</span>!</p>
+            
+            {% include "includes/github-users-list.html" with users_list=users_list %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock page_content %}
+
+
+{% block page_scripts %}
+
+{% endblock page_scripts %}
