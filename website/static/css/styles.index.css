@@ -76,10 +76,6 @@
                         linear-gradient(to right, var(--color-dark-secondary-a10), var(--color-dark-primary-a80)) border-box;
             border-color: var(--color-dark-primary-a90);
         }
-
-        .svg-inline--fa{
-            margin: 0 0.5rem;
-        }
     }
 }
 

@@ -13,7 +13,7 @@ import pytz
 class Index(TemplateView):
     template_name = "pyhub_app/pyhub-index.html"
     api = GitHubApi(token=GITHUB_TOKEN)
-
+    print(api.get_zen_info())
 
     def get(self, request):
         github_users = GithubUser.objects.all().values("username","url","thumbnail","last_consulted").distinct()
@@ -63,6 +63,10 @@ class Index(TemplateView):
                     }
                     return render(request, self.template_name, context)
                 else:
+                    print(r_user)
+                    print(r_commits)
+                    print(r_followers)
+                    print(r_following)
                     context = {'petition_error':"Error"}
                 
                 return render(request, self.template_name, context)

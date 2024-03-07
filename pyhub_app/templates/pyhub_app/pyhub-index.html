@@ -16,17 +16,24 @@
         {% comment %} POST PETITION {% endcomment %}
         {% if petition_error %}
             <div class="error-msg-container">
-                <div>Error</div>
-                <div>Error message</div>
+                <div class="section-title">Error 404</div>
+                <div>Sorry, we couldn't process your petition.</div>
             </div>
         {% endif %}
         
         {% if github_user %}
             <div class="github-info-container">
-                <div>Info</div>
-                {% include "website/includes/last-commits.html" with github_user=github_user github_commits=github_commits %}
-                <div>{{github_followers}}</div>
-                <div>{{github_following}}</div>
+                <div class="github-list followers">
+                    <div class="github-list-title">You have {{github_followers|length}} followers</div>
+                    {{github_followers}}
+                </div>
+                <div class="github-list commits">
+                    {% include "website/includes/last-commits.html" with github_user=github_user github_commits=github_commits %}
+                </div>
+                <div class="github-list following">
+                    <div class="github-list-title">You're following {{github_following|length}} people</div>
+                    {{github_following}}
+                </div>
             </div>
         {% endif %}
         

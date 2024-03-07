@@ -18,9 +18,6 @@
         padding-bottom: 1rem;
         font-family: "Roboto-R";
 
-        .section-title{
-            margin-bottom: 1rem;
-        }
         >p{
             color: var(--color-light-primary-a0);
             text-align: justify;

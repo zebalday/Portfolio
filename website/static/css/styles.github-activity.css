@@ -23,7 +23,7 @@
         .button-section{
             width: 98%;
             padding: 1rem;
-            margin: 0.5rem 0 0 0;
+            margin-top: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: end;
@@ -33,17 +33,22 @@
                 padding: 0.5rem 1rem;
                 font-size: 1rem;
                 font-family: "Roboto-R";
-                border: 1px solid transparent;
                 border-radius: 5px;
                 transition: all 0.5s;
-                background-color: var(--color-light-secondary-a30);
-                border: 2px solid var(--color-dark-secondary-a30);
+                border: 1px solid transparent;
+                background: linear-gradient(to right, var(--color-light-primary-a60), var(--color-light-primary-a60)) padding-box,
+                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+                color: var(--color-dark-primary-a0);
+            
+                .fa-right-long{
+                    margin-left: 0.5rem;
+                }
             }
             
             button:hover{
-                background-color: var(--color-light-primary-a60);
-                border: 2px solid var(--color-dark-secondary-a10);
-                color: var(--color-light-primary-a0);
+                background: linear-gradient(to right, var(--color-light-primary-a70), var(--color-light-primary-a70)) padding-box,
+                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+                color: var(--color-dark-primary-a0);
             }
         }
     }

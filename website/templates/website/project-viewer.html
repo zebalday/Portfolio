@@ -53,6 +53,9 @@
             </div>
             {% endif %}
         </div>
+        <div class="btn-section">
+            <button onClick="location.href='{% url 'website:portfolio' %}'" class="btn-go-back"><i class="fa-solid fa-left-long"></i> Go back to list</button>
+        </div>
     {% endfor %}
 {% endblock page_content %}
 

@@ -1,5 +1,4 @@
 .project-container{
-    /* border: 1px solid white; */
     width: 90%;
     color: var(--color-light-primary-a0);
     font-family: "Roboto-R";
@@ -7,7 +6,7 @@
     border-radius: 5px;
     border: 1px solid transparent;
     background: linear-gradient(to right, var(--color-dark-primary-a60), var(--color-dark-primary-a60)) padding-box,
-                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-secondary-a50)) border-box;
+                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
             
     .project-banner{
         border-bottom: 1px solid var(--color-dark-secondary-a20);
@@ -103,6 +102,30 @@
     
 }
 
+.btn-section{
+    width: 90%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+
+    button{
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-family: "Roboto-R";
+        color: var(--color-dark-primary-a0);
+        border: 1px solid transparent;
+        transition: all 0.5s;
+        background: linear-gradient(to right, var(--color-light-primary-a60), var(--color-light-primary-a60)) padding-box,
+                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+            
+    }
+
+    button:hover{
+        background: linear-gradient(to right, var(--color-light-primary-a70), var(--color-light-primary-a70)) padding-box,
+                linear-gradient(to right, var(--color-light-secondary-a50), var(--color-dark-primary-a70)) border-box;
+    }
+}
+    
 
 /* RESPONSIVENESS */
 @media (min-width:350px) {
@@ -122,23 +145,26 @@
 }
 
 @media (min-width:570px) {
-    .project-container{
+    .project-container,
+    .btn-section{
         width: 70%;
 
         .link-buttons{
             justify-content: flex-end;
             column-gap: 2rem;
         }
-    }
-    .project-images-slider{
-        max-width: 70%;
-        padding: 0rem;
-        
+
+        .project-images-slider{
+            max-width: 70%;
+            padding: 0rem;
+            
+        }
     }
 }
 
 @media (min-width:1080px) {
-    .project-container{
+    .project-container,
+    .btn-section{
         width: 60%;
     }
 }

@@ -33,13 +33,14 @@
                         {{ project.project.title }}
                     </div>
 
-                    {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
-                    {% include "website/includes/project-tags.html" with object=project %}
-
                     {% comment %} PROJECTS SHORT DESCRIPTION {% endcomment %}
                     <div class="abstract">
                         <p>{{ project.project.short_description }}</p>
                     </div>
+                    
+                    {% comment %} INCLUDE PROJECT TAGS COMPONENT {% endcomment %}
+                    {% include "website/includes/project-tags.html" with object=project %}
+
                 </div>
             </div>
         {% endfor %}

@@ -1,18 +1,28 @@
 .app-container{
-    /* border: 1px solid black; */
+    border: 1px solid black;
     width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 
     .error-msg-container,
     .github-info-container,
     .form-container{
-        /* border: 1px solid black; */
-        
+        border: 1px solid black;
     }
     
     .form-container{
-        
+        border: 1px solid black;
+        margin: 0 auto;
+        width: 95%;
         font-size: 1rem;
         line-height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         
         .user-form{
             /* border: 1px solid rgb(212, 0, 0); */
@@ -102,38 +112,124 @@
         }
     }
 
+    .github-info-container{
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        align-items: start;
+        justify-content: center;
+        margin: 0 auto;
+        
+        .github-list{
+            width: 95%;
+            margin: 0 auto;
+            border: 1px solid rgb(203, 39, 39);
+        }
+
+        .commits{
+            order: 1;
+            width: 100%;
+        }
+        .followers{
+            order: 2;
+            padding: 0.5rem;
+        }
+        .following{
+            order: 3;
+            padding: 0.5rem;
+        }
+    }
+
+    .error-msg-container{
+        color: var(--color-light-primary-a0);
+        width: 90%;
+    }
 
 }
 
 /* RESPONSIVENESS */
 @media (min-width:350px) {
     .app-container{
-        width: 85%;
+
+        .form-container{
+            width: 85%;
+        }
+        
+        .github-info-container{
+            
+            .github-list{
+
+            }
+        }
+
+        .error-msg-container{
+            width: 85%;
+        }
     }
 }
 
 @media (min-width:570px) {
     .app-container{
-        width: 60%;
-
+        
         .form-container{
-
+            width: 60%;
+            
             .user-form{
                 flex-direction: row;
                 column-gap: 0.5rem;
             }
+        }
+        
+        .github-info-container{
+            
+        }
+
+        .error-msg-container{
+            width: 60%;
         }
     }
 }
 
 @media (min-width:1080px) {
     .app-container{
-        width: 40%;
+        
+        .form-container{
+            width: 45%;
+        }
+        
+        .github-info-container{
+            flex-direction: row;
+            column-gap: 1rem;
+            
+            .github-list{
+                width: 33%;
+            }
+            
+            .commits{order: 2}
+            .followers{order: 1}
+            .following{order: 3}
+        }
+
+        .error-msg-container{
+            width: 45%;
+        }
     }
+    
 }
 
 @media (min-width:1400px) {
     .app-container{
-        width: 35%;
+        
+        .form-container{
+            width: 35%;
+        }
+
+        .github-info-container{
+        }
+
+        .error-msg-container{
+            width: 35%;
+        }
     }
 }
