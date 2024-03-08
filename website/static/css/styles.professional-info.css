@@ -6,6 +6,7 @@
     justify-content: start;
     align-items: center;
     
+    .profile-section,
     .skills-section,
     .studies-section,
     .certifications-section,
@@ -14,7 +15,6 @@
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
-        /* border-bottom: 1px solid var(--color-light-primary-a0); */
         padding-bottom: 1rem;
         font-family: "Roboto-R";
 

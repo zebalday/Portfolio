@@ -20,6 +20,9 @@
             padding-inline-start: 0.5rem;
         }
 
+        a{text-decoration: none;}
+        a:hover{text-decoration: underline;}
+
         .button-section{
             width: 98%;
             padding: 1rem;

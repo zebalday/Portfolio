@@ -7,6 +7,7 @@
 
 {% block page_styles %}
     <link href="{% static '/css/styles.pyhub-index.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/styles.github-follow-list.css' %}" rel="stylesheet" type="text/css">
 {% endblock page_styles %}
 
 
@@ -24,15 +25,13 @@
         {% if github_user %}
             <div class="github-info-container">
                 <div class="github-list followers">
-                    <div class="github-list-title">You have {{github_followers|length}} followers</div>
-                    {{github_followers}}
+                    {% include "includes/github-follow-list.html" with github_users_list=github_followers title="followers" github_username=github_user.username %}
                 </div>
                 <div class="github-list commits">
                     {% include "website/includes/last-commits.html" with github_user=github_user github_commits=github_commits %}
                 </div>
                 <div class="github-list following">
-                    <div class="github-list-title">You're following {{github_following|length}} people</div>
-                    {{github_following}}
+                    {% include "includes/github-follow-list.html" with github_users_list=github_following title="following" github_username=github_user.username %}
                 </div>
             </div>
         {% endif %}

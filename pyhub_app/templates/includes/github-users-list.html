@@ -1,7 +1,8 @@
 <div class="users-container">
     <ul class="users-list">
         {% for user in users_list %}
-            <li class="user-item">
+            <li class="user-item"  onClick="location.href='{{user.user_url}}'" target="_blank">
+                {{user.user_url}}
                 <img src="{{user.thumbnail}}">
                 <a href="{{user.url}}"><span class="highlighted-text">{{user.username}}</span> last checked on {{ user.last_consulted|date:"F d, Y"}}.</a>
             </li>

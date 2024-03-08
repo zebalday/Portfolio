@@ -34,6 +34,7 @@ class Index(TemplateView):
             
             if form.is_valid():
                 username = form.cleaned_data['username']
+                username = username.lower()
 
                 r_user = self.api.getUser(username)
                 r_commits = self.api.getLastCommits(username, 10)

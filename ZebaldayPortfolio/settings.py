@@ -139,13 +139,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Ckeditor configs
 CKEDITOR_CONFIGS = {
     'default': {
+        'allowedContent': True,
+        'stylesSet':[
+            {
+            'name':'highlighted-text', 'element':'div', 'attributes':{'class':'highlighted-text'}
+            },
+        ],
         'toolbar': 'Custom',
-        'toolbar_Custom': [
+        'toolbar_Custom': [            
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
             ['RemoveFormat', 'Source', 'Image', 'Table']
-        ]
+        ],
     }
 }
 

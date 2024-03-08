@@ -1,0 +1,25 @@
+
+<div class="github-users">
+    
+    <div class="github-users-title" id="github-list-title">
+        <p>
+        {% if title == "followers" %}
+        <span class="highlighted-text">{{github_username}}</span>, you have {{github_users_list|length}} {{title}}!
+        {% else %}
+        <span class="highlighted-text">{{github_username}}</span>, you're {{title}} {{github_users_list|length}} users
+        {% endif %}
+        </p>
+    </div>
+    
+    <div class="github-users-list">
+        <ul>
+            {% for user in github_users_list %}
+            <li class="user-item" onClick="location.href='{{user.user_url}}'" target="_blank">
+                <img src="{{user.avatar_url}}" >
+                <a href="{{user.user_url}}" target="_blank"><span class="highlighted-text">{{user.username}}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
