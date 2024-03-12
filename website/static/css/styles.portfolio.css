@@ -10,7 +10,7 @@
     button{
         background-color: transparent;
         border-color: transparent;
-        color: var(--color-dark-primary-a30);
+        color: var(--color-dark-secondary-a30);
         font-family: "LiberationSans-B";
         font-size: large;
         transition: all 0.5s;

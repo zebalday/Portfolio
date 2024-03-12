@@ -1,0 +1,47 @@
+{% extends "spotiboard_app/layout.html" %}
+{% load static %}
+
+
+{% block page_title %}Index{% endblock page_title %}
+
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-index.css' %}" >  
+{% endblock page_styles %}
+
+
+{% block page_content %}
+
+    <div class="index-content">
+        <div class="features">
+            <ul>
+                <li>Get your last played & liked songs!</li>
+                <li>See your <span class="highlighted-text-4">favorite artists</span> & <span class="highlighted-text-4">music styles</span>. </li>
+                <li>Get the <span class="highlighted-text-2">complete stats</span> of your profile!</li>
+                <li>Get your current playing song</li>
+                <li>Share with your <span class="highlighted-text-5">friends</span>!</li>
+            </ul>
+        </div>
+        <div class="login">
+            <button onClick="location.href='{{auth_url}}'"><i class="fa-brands fa-spotify"></i> Login with spotify</button>
+        </div>
+    </div>
+    
+{% comment %}     {% if auth_url %}
+        <a href="{{auth_url}}"> Login with spotify </a>
+    {% endif %}
+
+    {% if is_auth %}
+        SIP: {{is_auth}}
+    {% else %}
+        NOP: {{is_auth}}
+    {% endif %} {% endcomment %}
+
+{% endblock page_content %}
+
+
+{% block page_scripts %}
+{% endblock page_scripts %}
+
+
+

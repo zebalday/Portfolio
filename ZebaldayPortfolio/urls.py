@@ -22,7 +22,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
-    path('', include('pyhub_app.urls')),
+    path('pyhub/', include('pyhub_app.urls')),
+    path('spotiboard/', include('spotiboard_app.urls')),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

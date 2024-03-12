@@ -3,20 +3,17 @@ body{
     margin: 0 auto;
     
     header{
-        /* border: 1px solid white; */
         background-color: var(--color-dark-primary-a90);
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
         box-shadow: var(--color-light-secondary-a50) 0px 0px 20px;
         overflow: hidden;
     }
 
     .content-container{
-        /* border: 1px solid white; */
         width: 100%;
         min-height: 100px;
         margin: 5rem auto;
@@ -27,18 +24,14 @@ body{
     }
 
     footer{
-        /* border: 1px solid white; */
         background-color: transparent;
         width: auto;
         position: absolute;
-        /* bottom: 0.5rem; */
-        
     }
 }
 
 header {
     .header-items-container{
-        /* border: 1px solid white; */
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -48,7 +41,6 @@ header {
 
     .header-title,
     .header-menu{
-        /* border: 1px solid white; */
         font-family: "LemonMilk-R";
         color: var(--color-light-primary-a0);
     }

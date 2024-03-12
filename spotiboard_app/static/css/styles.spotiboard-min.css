@@ -1,0 +1,79 @@
+:root{
+    --spotify-light-green: #1ed760;
+    --spotify-dark-green: #1db954;
+    
+    --spotify-light-purple: #fc39d8;
+    --spotify-dark-purple: #b02897;
+
+    --spotify-light-blue: #509bf5;
+    --spotify-dark-blue: #1e3264;
+
+    --spotify-light-red: #e91429;
+    --spotify-dark-red: #8c1932;
+
+    --spotify-light-yellow: #f9e12c;
+    --spotify-dark-yellow: #d19f0a;
+
+    --spotify-light-grey: #909090;
+    --spotify-dark-grey: #444444;
+
+    --spotify-dark: #191414;
+    --spotify-light: #ffffff;
+}
+
+@font-face {
+    font-family: 'Gotham-L';
+    src: url('../fonts/Gotham-L.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Gotham-M';
+    src: url('../fonts/Gotham-M.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Gotham-MI';
+    src: url('../fonts/Gotham-MI.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Gotham-BI';
+    src: url('../fonts/Gotham-BI.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Gotham-UI';
+    src: url('../fonts/Gotham-UI.ttf') format('truetype');
+}
+
+.highlighted-text{
+    background: linear-gradient(to right, var(--spotify-dark-green) 0%, var(--spotify-light-green) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 0px;
+}
+.highlighted-text-2{
+    background: linear-gradient(30deg, var(--spotify-dark-blue) 0%, var(--spotify-light-blue) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 0px;
+}
+.highlighted-text-3{
+    background: linear-gradient(to right, var(--spotify-dark-red) 0%, var(--spotify-light-red) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 0px;
+}
+.highlighted-text-4{
+    background: linear-gradient(30deg, var(--spotify-dark-purple) 0%, var(--spotify-light-purple) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 0px;
+}
+.highlighted-text-5{
+    background: linear-gradient(30deg, var(--spotify-dark-yellow) 20%, var(--spotify-light-yellow) 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 0px;
+}

@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fontawesomefree',
+    'rest_framework',
     'whitenoise',
     'ckeditor',
     'website',
+    'spotiboard_app',
     'pyhub_app',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [

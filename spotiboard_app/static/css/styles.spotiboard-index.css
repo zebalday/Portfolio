@@ -1,0 +1,42 @@
+.index-content{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+
+    .features{
+        
+        ul{
+            /* padding-inline-start: 0.5rem; */
+            list-style:decimal;
+
+            
+            li{
+                padding: 0.2rem;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+    .login{
+
+        button{
+            font-family: 'Gotham-M';
+            font-size: 1.2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            color: var(--spotify-dark);
+            background-color: var(--spotify-light-green);
+            border: 1px solid var(--spotify-dark);
+            transition: all 0.1s;
+        }
+        button:hover{
+            transform: scale(103%);
+        }
+
+
+    }
+}

@@ -6,3 +6,5 @@ website/.env
 website/env_variables.py
 pyhub_app/.env
 pyhub_app/env_variables.py
+spotiboard_app/.env
+spotiboard_app/env_variables.py

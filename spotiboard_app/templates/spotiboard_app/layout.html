@@ -1,10 +1,10 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="header finisher-header">
 <head>
         <!-- TITTLE -->
-        <title>zebalday.dev | {% block page_title %}{% comment %} CHILD TEMPLATE TITTLE {% endcomment %}{% endblock page_title %}</title>
+        <title>Spotiboard - {% block page_title %}{% comment %} CHILD TEMPLATE TITTLE {% endcomment %}{% endblock page_title %} | By zebalday.dev</title>
         <!-- META -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
@@ -28,15 +28,15 @@
         <meta property="og:image:type" content="image/png">
         <meta property="og:locale" content="es">
         <meta property="og:url" content="" />
-        <meta property="og:site_name" content="Baron Propiedades" />
+        <meta property="og:site_name" content="" />
         <!-- STYLES -->
         <link href="{% static 'fontawesomefree/css/solid.min.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'fontawesomefree/css/brands.min.css' %}" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.min.css' %}" >
-        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.layout.css' %}" >
-        <link rel="stylesheet" type="text/css" href= "{% static '/css/themes/styles.light.css' %}" >
-        <link rel="stylesheet" type="text/css" href= "{% static '/css/themes/styles.dark.css' %}" >
-        <link rel="stylesheet" type="text/css" href= "{% static '/css/utils/styles.includes.css' %}" >
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/utils/styles.includes.css' %}" >  
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-min.css' %}" >  
+        <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-layout.css' %}" >  
+
+
         {% block page_styles %}
         {% comment %} CHILD TEMPLATE STYLES {% endcomment %}
         {% endblock page_styles %}
@@ -47,14 +47,8 @@
 
         <!-- TITLE & NAVITAGION HEADER -->
         <header>
-            <div class="header-items-container">
-                <div class="header-title" onClick="location.href='{% url 'website:home' %}'">
-                    <h1>zebalday</h1>
-                </div>
-                <div class="theme-toggle" id="theme-toggle">
-                    <i class="fa-solid fa-moon" id="fa-moon"></i>
-                    <i class="fa-solid fa-sun" id="fa-sun"></i>
-                </div>
+            <div class="header-title" onClick="location.href='{% url 'spotiboard_app:index' %}'">
+                <h1>Spotiboard, your <span class="highlighted-text">Spotify</span> dashboard</h1>
             </div>
         </header>
 
@@ -72,20 +66,13 @@
                 <div class="footer-info">
                     <p>&copy; 2024 zebalday.dev by Sebastián Alday</p>
                 </div>
-
             </div>
         </footer>
         
         <!-- SCRIPTS-->
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <script src="{% static 'js/theme-toggle.js' %}"></script>
         {% block page_scripts %}
         {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
         {% endblock page_scripts %}
     </body>
 </html>
-
-
-
-
-

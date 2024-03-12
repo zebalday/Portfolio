@@ -1,0 +1,90 @@
+body{
+    margin: 0 auto;
+    background-color: var(--spotify-dark);
+    color: var(--spotify-light);
+    font-family: 'Gotham-M';
+
+    header{
+        /* border: 1px solid rgb(255, 255, 255); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        width: auto;
+
+        .header-title{
+            width: 90%;
+            h1{
+                margin: 0 auto;
+                line-height: 2.5rem;
+            }
+        }
+    }
+
+    .content-container{
+        /* border: 1px solid rgb(255, 255, 255); */
+        margin: 3rem auto;
+        min-height: 200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer{
+        /* border: 1px solid rgb(255, 255, 255); */
+    
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: auto;
+        left: 5%;
+        right: 5%;
+    
+        .media-container{
+            .svg-inline--fa {
+                color: var(--spotify-light);
+            }
+        }
+
+        .footer-info{
+            background: var(--color-light-secondary-a50);
+            background: linear-gradient(to right, var(--spotify-dark-green)20%, var(--spotify-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }    
+}
+
+
+
+
+/* RESPONSIVENESS */
+@media (min-width:320px) {
+
+}
+
+@media (min-width:570px) {
+    body{
+
+        footer{
+            left:20%;
+            right:20%;
+        }
+    }
+}
+
+@media (min-width:1080px) {
+    body{
+
+        footer{
+            left:30%;
+            right:30%;
+        }
+    }
+}
