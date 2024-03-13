@@ -42,7 +42,7 @@ def is_spotify_authenticated(session_id):
         expiry = tokens.expires_in
         if expiry <= timezone.now():
             refresh_spotify_token(session_id)
-        return (True)
+        return True
     return False
 
 
@@ -59,6 +59,8 @@ def refresh_spotify_token(session_id):
                         'client_secret': CLIENT_SECRET
                 })
     
+    #response = response.json()
+
     access_token = response.get('access_token')
     token_type = response.get('token_type')
     expires_in = response.get('expires_in')
@@ -85,9 +87,11 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False, p
     
     
     response = get(BASE_URL + endpoint, headers=headers, params=params_)
-    print(response.url)
+    
+    print(f"util: {response.status_code}")
+
 
     try:
-        return response.json()
+        return response
     except:
         return ({'error':'Request error.'})

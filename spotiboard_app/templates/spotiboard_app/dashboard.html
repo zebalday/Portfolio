@@ -1,0 +1,110 @@
+{% extends "spotiboard_app/layout.html" %}
+{% load static %}
+
+{% block page_title %} {{user.username}} {% endblock page_title %}
+
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-dashboard.css' %}" >  
+{% endblock page_styles %}
+
+
+{% block page_content %}
+
+<div class="dashboard-content">
+    
+    {% comment %} USER INFO {% endcomment %}
+    <div class="user-info">
+        <img src="{{user.thumbnail}}" alt="Spotify User Profile Picture"/>
+        <a href="{{user.profile_url}}"><h2>{{user.username}}</h2></a>
+        <p>({{user.followers}} followers)</p>
+    </div>
+
+    {% comment %} CONTAINER {% endcomment %}
+    <div class="features-container">
+
+        {% comment %} CURRENT PLAYING SONG {% endcomment %}
+        <div class="current-song">
+            {% if current_song.status == True %}
+                <img class="thumbnail" src="{{current_song.thumbnail}}" alt="{{current_song.name}} Spotify Thumbnail"/>
+                <div class="info">
+                    <a class="song-name" href="{{current_song.song_url}}">{{current_song.name}}</a>
+                    <span class="artists">
+                        {% for artist in current_song.artists %}
+                        <a href="{{artist.profile_url}}">{{artist.name}}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </span>
+                    <p>Album: {{current_song.album}}</p>
+                </div>
+                {% comment %} {{current_song}} {% endcomment %}
+            {% else %}
+                <p>No song is playing right now.</p>
+            {% endif %}
+        </div>
+
+
+        {% comment %} LAST PLAYED SONGS {% endcomment %}
+        <div class="songs-history">
+            <div class="banner">
+                <h3 class="title highlighted-text">Recently played</h3>
+                <p class="toggle" id="toggleBtn">(hide)</p>
+            </div>
+            <div class="list">
+                <ul>
+                    {% for track in songs_history %}
+                        <li class="show songItem">
+                            <a class="song-url" href="track.song_url">{{track.name}}</a>
+                            <br>
+                            {% for artist in track.artists %}<a class="artist-url" href="{{artist.profile_url}}">{{artist.name}}{% if not forloop.last %}, {% endif %}</a>{% endfor %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <div>
+            {{top_artists}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            {{top_genres}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            {{top_tracks}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            {{last_saved_songs}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            {{all_playlists}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            {{followed_artists}}
+        </div>
+    </div>
+</div>
+
+{% endblock page_content %}
+
+
+{% block page_scripts %}
+    <script src="{% static 'js/spotiboard-functions.js' %}"></script>
+{% endblock page_scripts %}
+
