@@ -9,4 +9,11 @@ class SpotifyToken(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return (f"{self.user} | {self.created_at}")
+        return (f"""
+                {self.user}
+                {self.token_type}
+                {self.access_token}
+                {self.refresh_token}
+                {self.expires_in}
+                {self.created_at}
+                """.strip())

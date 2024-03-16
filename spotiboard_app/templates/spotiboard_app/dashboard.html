@@ -5,7 +5,7 @@
 
 
 {% block page_styles %}
-    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-dashboard.css' %}" >  
+    <link rel="stylesheet" type="text/css" href= "{% static '/css/styles.spotiboard-dashboard.css' %}" > 
 {% endblock page_styles %}
 
 
@@ -47,13 +47,13 @@
         <div class="songs-history">
             <div class="banner">
                 <h3 class="title highlighted-text">Recently played</h3>
-                <p class="toggle" id="toggleBtn">(hide)</p>
+                <p class="toggle" id="toggleBtnLastSongs">(hide)</p>
             </div>
             <div class="list">
                 <ul>
                     {% for track in songs_history %}
-                        <li class="show songItem">
-                            <a class="song-url" href="track.song_url">{{track.name}}</a>
+                        <li class="show last-song-item">
+                            <a class="song-url" href="{{track.song_url}}">{{track.name}}</a>
                             <br>
                             {% for artist in track.artists %}<a class="artist-url" href="{{artist.profile_url}}">{{artist.name}}{% if not forloop.last %}, {% endif %}</a>{% endfor %}
                         </li>
@@ -62,18 +62,44 @@
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <div>
-            {{top_artists}}
+        {% comment %} USER TOP LISTENED ARTISTS {% endcomment %}
+        <div class="top-artists">
+            <div class="banner">
+                <h3 class="title highlighted-text">Your most listened artists!</h3>
+                <p class="toggle" id="toggleBtnTopArtists">(hide)</p>
+            </div>
+            
+            <div class="artists-cards">
+                
+                {% for artist in top_artists %}
+                    <div class="flip-card top-artist-card">
+                        <div class="flip-card-inner top-artist-card show">
+                            <div class="flip-card-front">
+                                <img src="{{artist.thumbnail}}" alt="{{artist.name}} Spotify Profile Picture">
+                                <h2 class="artist-name">{{artist.name}}</h2>
+
+                            </div>
+                            <div class="flip-card-back">
+                                <h2 class="highlighted-text">{{artist.popularity}}% Popularity</h2>
+                                <p>
+                                    {% for genre in artist.genres %}
+                                    {{genre|capfirst}}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            {{top_genres}}
+
+        {% comment %} USER TOP LISTENED GENRES {% endcomment %}
+        <div class="top-genres">
+            
+            {% include "includes/top-genres-chart.html" %}
         </div>
+
         <br>
         <br>
         <br>
@@ -106,5 +132,8 @@
 
 {% block page_scripts %}
     <script src="{% static 'js/spotiboard-functions.js' %}"></script>
+    {% comment %} <script src="{% static 'js/top-genres-chart.js' %}"></script> {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock page_scripts %}
 

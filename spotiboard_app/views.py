@@ -71,6 +71,11 @@ def spotify_callback(request):
 """ def layout(request):
     return render(request, template_name='spotiboard_app/layout.html') """
 
+def chart(request):
+    artists, genres = get_top_artists_and_genres(request)
+
+    return render(request, template_name='includes/top-genres-chart.html', context={'genres': genres})
+
 
 # The login page
 class Index(TemplateView):
@@ -98,7 +103,7 @@ class Dashboard(TemplateView):
         self.context['user'] = get_user_info(request)
         self.context['current_song'] = get_current_song(request)
         self.context['songs_history'] = get_songs_history(request)
-        #self.context['top_artists'], self.context['top_genres'] = get_top_artists_and_genres(request)
+        self.context['top_artists'], self.context['top_genres'] = get_top_artists_and_genres(request)
         #self.context['top_tracks'] = get_top_tracks(request)
         #self.context['last_saved_songs'] = get_last_saved_songs(request)
         #self.context['all_playlists'] = get_user_playlists(request)
@@ -106,6 +111,7 @@ class Dashboard(TemplateView):
 
 
         return render(request, self.template_name, self.context)
+
 
 
 """ METHODS FOR RETRIEVING INFO FROM SPOTIFY API"""
@@ -204,10 +210,17 @@ def get_top_artists_and_genres(request) -> tuple:
                 all_genres[genre] = 1
 
         # Getting the top 10 genres in list format
-        all_genres_sorted = sorted(all_genres.items(), key=lambda kv: kv[1], reverse=True)[:10]
-        genres_list = [x[0] for x in all_genres_sorted]
+        genres_list = sorted(all_genres.items(), key=lambda kv: kv[1], reverse=True)[:10]
+        labels = []
+        data = []
+        for x in genres_list:
+            labels.append(x[0])
+            data.append(x[1])
+    
+    # Sort artists by popularity
+    artists_list = sorted(artists_list, key=lambda x: x["popularity"], reverse=True)
 
-    return (artists_list, genres_list)
+    return (artists_list, {'labels':labels, 'data':data})
 
 def get_top_tracks(request) -> list:
     user_session = request.session.session_key
@@ -290,6 +303,8 @@ def get_user_followed_artists(request) -> list:
     sorted_artists = sorted(followed_artists, key=lambda kv: kv["rank"], reverse=True)
     
     return sorted_artists
+
+
 
 """ UTILS """
 def get_all_artists(artists) -> list:
