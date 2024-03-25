@@ -24,7 +24,7 @@
             </div>
             <div class="link-buttons">
                 {% if project.project.project_url %}
-                    <button class="project-link-btn link-btn"><a href="{{project.project.project_url}}"><i class="fa-solid fa-link"></i> Go to project</a></button>
+                    <button class="project-link-btn link-btn"><a href="{% url project.project.project_url %}"><i class="fa-solid fa-link"></i> Go to project</a></button>
                 {% endif %}
                 {% if project.project.github_url %}
                     <button class="project-link-btn git-btn"><a href="{{project.project.github_url}}"><i class="fa-brands fa-github"></i> View Repository</a></button>

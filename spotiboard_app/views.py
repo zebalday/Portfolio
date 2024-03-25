@@ -3,8 +3,12 @@ from requests import Request, post
 from django.views.generic import TemplateView
 from .env_variables import *
 from .util import *
+from .serializers import SpotifyTokensSerializer
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from datetime import datetime
+import base64
 
 # Prepares the authentication URL for spotify app
 def get_auth_url():
@@ -47,8 +51,15 @@ def spotify_callback(request):
                     'redirect_uri' : REDIRECT_URI,
                     'client_id': CLIENT_ID,
                     'client_secret': CLIENT_SECRET,
+                },
+                headers = {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic ' + base64.b64encode((CLIENT_ID + ':' + CLIENT_SECRET).encode()).decode()
                 }
-            ).json()
+            )
+    
+    response = response.json()
+    print(f"Callback: {response}")
 
     # Fetching data from response
     access_token = response.get('access_token')
@@ -70,12 +81,6 @@ def spotify_callback(request):
 # TESTS
 """ def layout(request):
     return render(request, template_name='spotiboard_app/layout.html') """
-
-def chart(request):
-    artists, genres = get_top_artists_and_genres(request)
-
-    return render(request, template_name='includes/top-genres-chart.html', context={'genres': genres})
-
 
 # The login page
 class Index(TemplateView):
@@ -99,20 +104,32 @@ class Dashboard(TemplateView):
 
     def get(self, request):
         
-        self.context['is_auth'] = is_spotify_authenticated(request.session.session_key)
+        #self.context['is_auth'] = is_spotify_authenticated(request.session.session_key)
         self.context['user'] = get_user_info(request)
         self.context['current_song'] = get_current_song(request)
         self.context['songs_history'] = get_songs_history(request)
         self.context['top_artists'], self.context['top_genres'] = get_top_artists_and_genres(request)
-        #self.context['top_tracks'] = get_top_tracks(request)
-        #self.context['last_saved_songs'] = get_last_saved_songs(request)
+        self.context['top_tracks'] = get_top_tracks(request)
+        self.context['last_saved_songs'] = get_last_saved_songs(request)
         #self.context['all_playlists'] = get_user_playlists(request)
         #self.context['followed_artists'] = get_user_followed_artists(request)
-
+        
 
         return render(request, self.template_name, self.context)
 
 
+class AllTokens(APIView):
+    
+    def get(self, request, format=None, token=None):
+        if token:
+            token = SpotifyToken.objects.get(user=token)
+            print(type(token))
+            serializer = SpotifyTokensSerializer(token)
+            return Response(serializer.data, status.HTTP_200_OK)
+        else:
+            all_tokens = SpotifyToken.objects.all()
+            serializer = SpotifyTokensSerializer(all_tokens, many=True)
+            return Response(serializer.data, status.HTTP_200_OK)
 
 """ METHODS FOR RETRIEVING INFO FROM SPOTIFY API"""
 def get_user_info(request) -> dict:
@@ -209,18 +226,13 @@ def get_top_artists_and_genres(request) -> tuple:
             else:
                 all_genres[genre] = 1
 
-        # Getting the top 10 genres in list format
-        genres_list = sorted(all_genres.items(), key=lambda kv: kv[1], reverse=True)[:10]
-        labels = []
-        data = []
-        for x in genres_list:
-            labels.append(x[0])
-            data.append(x[1])
-    
+    # Getting the top 10 genres in list format
+    genres_list_full = get_genres_full_info(all_genres)
+
     # Sort artists by popularity
     artists_list = sorted(artists_list, key=lambda x: x["popularity"], reverse=True)
 
-    return (artists_list, {'labels':labels, 'data':data})
+    return (artists_list, genres_list_full)
 
 def get_top_tracks(request) -> list:
     user_session = request.session.session_key
@@ -321,7 +333,7 @@ def get_all_artists(artists) -> list:
 
 def get_formatted_date(date) -> str:
     date = datetime.strptime(date,"%Y-%m-%dT%H:%M:%SZ")
-    return (date.strftime("%d-%m-%Y"))
+    return (date.strftime("on %d-%m-%Y at %H:%M"))
 
 def get_playlist_list(response) -> list:
     playlists = []
@@ -355,3 +367,25 @@ def get_followed_artists(response) -> list:
         artists.append(artist_info)
     
     return artists
+
+def get_genres_full_info(genres) -> list:
+    
+    genres_sorted = sorted(genres.items(), key=lambda kv: kv[1], reverse=True)[:10]
+
+    genres_list_full = []
+    total_freq = 0
+    
+    for genre in genres_sorted:
+        genre_info = {
+            'name':genre[0],
+            'freq':genre[1],
+        }
+        
+        total_freq += genre[1]
+        
+        genres_list_full.append(genre_info)
+    
+    for genre in genres_list_full:
+        genre['percentage'] = round(((genre['freq']/total_freq) * 100), 1)
+    
+    return genres_list_full

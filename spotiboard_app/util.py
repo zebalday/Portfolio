@@ -9,36 +9,51 @@ from .serializers import SpotifyTokensSerializer
 
 # Verify is there're saved tokens associated to an user session
 def get_user_tokens(session_id):
-    
-    user_tokens = SpotifyToken.objects.get(user=session_id)
-    #print(user_tokens)
 
-    if user_tokens:
+    print(f"Get User Tokens | Session ID: {session_id}")
+
+    try:
+        user_tokens = SpotifyToken.objects.get(user=session_id)
+        print(type(user_tokens))
         return user_tokens
-    return None
+    except:
+        return None
 
 
 # Create new tokens or update existing ones
 def update_or_create_user_tokens(session_id, access_token, token_type, expires_in, refresh_token):
     
     tokens = get_user_tokens(session_id)
+
+    #print(f"Valor que llega {expires_in}")
+    #print(f"Hora actual {timezone.now()}")
+
     expires_in = timezone.now() + timedelta(seconds=expires_in)
     
+    #print(f"Hora de expiración {expires_in}")
+    
+    # Update tokens
     if tokens:
         tokens.access_token = access_token
         tokens.refresh_token = refresh_token
         tokens.expires_in = expires_in
         tokens.token_type = token_type
         tokens.save(update_fields=['access_token', 'refresh_token', 'expires_in','token_type'])
+        print("Acción Actualizar")
+
+    # Create tokens
     else:
         tokens = SpotifyToken(user=session_id, access_token=access_token, refresh_token=refresh_token, token_type=token_type, expires_in=expires_in)
         tokens.save()
+        print("Nueva Sesión Guardada")
+        print(type(SpotifyToken.objects.get(user=session_id)))
 
 
 # Check if user is authenticated (false if else) & its token hasn't expired (refresh if else)
 def is_spotify_authenticated(session_id):
     
     tokens = get_user_tokens(session_id)
+    #print(tokens)
     
     if tokens:
         expiry = tokens.expires_in
@@ -59,20 +74,20 @@ def refresh_spotify_token(session_id):
                         'grant_type':'refresh_token',
                         'refresh_token': refresh_token,
                         'client_id': CLIENT_ID,
-                        'client_secret': CLIENT_SECRET},
+                        'client_secret': CLIENT_SECRET
+                        },
                     headers={
                         'Content-Type': 'application/x-www-form-urlencoded',
-                    }
+                        }
                     )
     
     #print(response.status_code)
-    #response = response.json()
-    #print(response)
+    response = response.json()
+    print(f"Refresh: {response}")
 
     access_token = response.get('access_token')
     token_type = response.get('token_type')
     expires_in = response.get('expires_in')
-    refresh_token = refresh_token
     
     #print(refresh_token)
 

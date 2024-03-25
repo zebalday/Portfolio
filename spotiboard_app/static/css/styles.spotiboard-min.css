@@ -10,6 +10,9 @@
 
     --spotify-light-red: #e91429;
     --spotify-dark-red: #8c1932;
+    
+    --spotify-light-callypso: #00fafa;
+    --spotify-dark-callypso: #009cad;
 
     --spotify-light-yellow: #f9e12c;
     --spotify-dark-yellow: #d19f0a;
@@ -78,7 +81,7 @@
     padding: 2px 0px;
 }
 
-/* SPECIAL EFFECTS */
+/* SPECIAL EFFECTS - SLIDE ANIMATION */
 
 @keyframes slideDown {
     from {
@@ -89,7 +92,6 @@
     to {
         transform: translateY(0);
         opacity: 1;
-
     }
 }
 
@@ -111,4 +113,35 @@
 
 .hide {
     animation-name: slideUp;
+}
+
+
+/* SPECIAL EFFECTS - SLIDE ANIMATION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        display: flex;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.showFadeIn {
+    animation-name: fadeIn;
+}
+
+.hideFadeOut {
+    animation-name: fadeOut;
 }

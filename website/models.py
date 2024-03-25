@@ -394,9 +394,9 @@ class Project(models.Model):
         blank = True,
         null = True
     )
-    project_url = models.URLField(
+    project_url = models.CharField(
         verbose_name = "Project Link",
-        max_length = 250,
+        max_length = 100,
         editable = True,
         blank = True,
         null = True

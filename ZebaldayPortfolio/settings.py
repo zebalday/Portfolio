@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fontawesomefree',
     'rest_framework',
+    'django_plotly_dash',
     'whitenoise',
     'ckeditor',
     'website',
@@ -158,3 +159,6 @@ CKEDITOR_CONFIGS = {
 
 # SESSION CONFIGS
 SESSION_TIMEOUT = 3600
+
+# DJANGO-PLOTLY-DASH
+X_FRAME_OPTIONS = 'SAMEORIGIN'
